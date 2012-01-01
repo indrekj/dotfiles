@@ -1,0 +1,33 @@
+[user]
+  name = Indrek Juhkam
+  email = indrek@urgas.eu
+[alias]
+  co = checkout
+  st = status
+  df = diff --stat -p --no-prefix
+  view = log --stat -b -p --no-prefix
+  tree = log --graph --oneline --decorate
+  ra = log --graph --abbrev-commit --date=relative --all
+[format]
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetuprebase = remote
+[color]
+  status = auto
+  diff = auto
+  branch = auto
+  interactive = auto
+[core]
+  editor = vim
+	autocrlf = input
+[diff]
+  wordRegex = (, )?[^[:space:],().]+[push]
+  default = current
+[pager]
+  status = false
+[rerere]
+  autoupdate = true
+  enabled = true
+[push]
+  default = tracking

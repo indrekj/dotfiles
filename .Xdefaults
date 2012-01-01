@@ -1,0 +1,81 @@
+!
+! Xft
+!
+
+Xft.dpi: 100
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.antialias: true
+Xft.rgba: rgb
+
+!
+! Xcursor
+!
+
+Xcursor.theme: Lila-white
+
+!
+! urxvt
+!
+
+*vt0*saveLines: 9000
+*vt1*saveLines: 9000
+*vt2*saveLines: 9000
+*vt3*saveLines: 9000
+*vt4*saveLines: 9000
+*vt5*saveLines: 9000
+*vt6*saveLines: 9000
+*vt7*saveLines: 9000
+*vt8*saveLines: 9000
+*vt9*saveLines: 9000
+
+*initTermNumber:   1
+*protectSecondary: true
+*loginShell:       false
+*scrollBar:        false
+*scrollBar_right:  false
+*scrollbarStyle:   rxvt
+
+*background:  #151515
+*foreground:  #D6D6D6
+*scrollColor: rgba:8888/8888/8888/eeee
+
+*tabPixmap:     false
+*syncTabTitle:  true
+*bottomTabbar:  false
+*windowsSwitch: false
+*showMenu:      false
+*hideButtons:   true
+
+!urxvt*font: xft:DejaVu Sans Mono:size=11
+*font: xft:Inconsolata:pixelsize=18
+
+! TODO: use alt or rxvt own stuff. we use ctrl-num keys in vim
+! Bind C-0, C-1, ..., C-6 activate larger fonts.
+! URxvt.keysym.C-0: command:\033]710;xft:Inconsolata:pixelsize=18\007
+! URxvt.keysym.C-1: command:\033]710;xft:Inconsolata:pixelsize=20\007
+! URxvt.keysym.C-2: command:\033]710;xft:Inconsolata:pixelsize=22\007
+! URxvt.keysym.C-3: command:\033]710;xft:Inconsolata:pixelsize=24\007
+! URxvt.keysym.C-4: command:\033]710;xft:Inconsolata:pixelsize=26\007
+! URxvt.keysym.C-5: command:\033]710;xft:Inconsolata:pixelsize=28\007
+! URxvt.keysym.C-6: command:\033]710;xft:Inconsolata:pixelsize=28\007
+
+*cursorBlink: false
+*cursorBlinkInterval: 500
+*geometry: 83x23
+*multichar_encoding: noenc
+*inputMethod: SCIM
+*cursorColor: #5277b8
+*hideTabbar: true
+*tripleclickwords: true
+*internalBorder: 0
+*depth: 32
+
+*scrollstyle: plain
+*termName: rxvt-unicode
+
+*cursorUnderline: false
+
+! Transparency
+*fading: 8
+*fadeColor: rgba:0000/0000/0000/0000

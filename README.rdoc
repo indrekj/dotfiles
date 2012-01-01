@@ -1,0 +1,4 @@
+== Installation
+ apt-get install ttf-inconsolata zsh rxvt-unicode vim-nox
+ git submodule init
+ git submodule update
