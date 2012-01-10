@@ -8,6 +8,7 @@
   view = log --stat -b -p --no-prefix
   tree = log --graph --oneline --decorate
   ra = log --graph --abbrev-commit --date=relative --all
+  mine = "!git log --author='Indrek Juhkam' --format='%h %ad %s'"
 [format]
 [apply]
   whitespace = nowarn

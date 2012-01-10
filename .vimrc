@@ -24,6 +24,9 @@ set scrolloff=3       " keep 3 lines when scrolling
 set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
 
+" Use ack instead of grep
+set grepprg=ack-grep\ -a\ --ignore-dir=log\ --ignore-dir=tmp
+
 set wildmode=list:longest
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
@@ -37,6 +40,7 @@ set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=classes
 set wildignore+=lib
+set wildignore+=log
 
 set foldlevel=100
 set foldmethod=indent
@@ -57,8 +61,6 @@ set statusline+=%=              " right align remainder
 set statusline+=0x%-8B          " character value
 set statusline+=%-14(%l,%c%V%)  " line, character
 set statusline+=%<%P            " file position
-
-set grepprg=ack                 " use ack instead of grep
 
 set complete=.,w,b,u,i
 set completeopt=menu,preview
