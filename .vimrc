@@ -125,6 +125,13 @@ map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
 noremap k gk
 noremap j gj
 
+" Fix cursor position when using page up and down
+map <PageUp> <C-U>
+map <PageDown> <C-D>
+imap <PageUp> <C-O><C-U>
+imap <PageDown> <C-O><C-D>
+set nostartofline
+
 " move between several split windows maximizing the active one
 nmap <C-J> <C-W>j<C-W>_
 nmap <C-K> <C-W>k<C-W>_

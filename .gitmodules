@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/vim-pastie"]
 	path = .vim/bundle/vim-pastie
 	url = git://github.com/tpope/vim-pastie.git
+[submodule ".vim/bundle/vim-rake"]
+	path = .vim/bundle/vim-rake
+	url = git://github.com/tpope/vim-rake.git

@@ -71,6 +71,7 @@ alias pp='python -mjson.tool'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
+alias git tag='nocorrect git tag'
 
 # colors and shorthands
 alias ls='ls --color=auto'
@@ -290,8 +291,8 @@ bindkey '[b' down-line-or-history         # shift-down
 #bindkey '[5^' up-line-or-beginning-search   # ctrl-page-up
 #bindkey '[6^' down-line-or-beginning-search # ctrl-page-down
 
-bindkey '' backward-delete-to-slash           # ctrl-backspace
-bindkey "\e" backward-delete-to-slash     # alt-backspace
+bindkey '' backward-delete-word           # ctrl-backspace
+bindkey "\e" backward-delete-word         # alt-backspace
 
 bindkey '^[^[[D' backward-delete-word       # shift-left
 bindkey '^[^[[C' delete-word                # shift-right
@@ -345,9 +346,9 @@ precmd
 [ -e "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
 
 # Ruby
-#export RUBY_HEAP_MIN_SLOTS=1250000
-#export RUBY_HEAP_SLOTS_INCREMENT=1000000
-#export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-#export RUBY_GC_MALLOC_LIMIT=1000000000
-#export RUBY_HEAP_FREE_MIN=500000
+export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_HEAP_SLOTS_INCREMENT=1000000
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+export RUBY_GC_MALLOC_LIMIT=1000000000
+export RUBY_HEAP_FREE_MIN=500000
 export RUBY_DISABLE_GC_FOR_SPECS="true"
