@@ -2,7 +2,7 @@
 ! Xft
 !
 
-Xft.dpi: 100
+Xft.dpi: 109
 Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.antialias: true
@@ -18,16 +18,7 @@ Xcursor.theme: Lila-white
 ! urxvt
 !
 
-*vt0*saveLines: 9000
-*vt1*saveLines: 9000
-*vt2*saveLines: 9000
-*vt3*saveLines: 9000
-*vt4*saveLines: 9000
-*vt5*saveLines: 9000
-*vt6*saveLines: 9000
-*vt7*saveLines: 9000
-*vt8*saveLines: 9000
-*vt9*saveLines: 9000
+*saveLines: 15000
 
 *initTermNumber:   1
 *protectSecondary: true
@@ -48,7 +39,7 @@ Xcursor.theme: Lila-white
 *hideButtons:   true
 
 !urxvt*font: xft:DejaVu Sans Mono:size=11
-*font: xft:Inconsolata:pixelsize=18
+*font: xft:Inconsolata:pixelsize=20
 
 ! TODO: use alt or rxvt own stuff. we use ctrl-num keys in vim
 ! Bind C-0, C-1, ..., C-6 activate larger fonts.

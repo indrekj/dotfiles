@@ -9,6 +9,7 @@
   tree = log --graph --oneline --decorate
   ra = log --graph --abbrev-commit --date=relative --all
   mine = "!git log --author='Indrek Juhkam' --format='%h %ad %s'"
+  mine-by-day = "!git-mine-by-day"
   untracked = ls-files --others --exclude-standard
   edit-modified = "!f() { git ls-files --modified --exclude-standard | sort -u ; }; vim `f`"
 [format]

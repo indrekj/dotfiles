@@ -108,8 +108,7 @@ autocmd BufEnter Gemfile set filetype=ruby
 autocmd FileType text setlocal textwidth=78
 
 " FuzzyFinderTextMate
-map <leader>t :FuzzyFinderTextMate<CR>
-let g:fuzzy_ignore = "*.png;*.PNG;*.JPG;*.jpg;*.GIF;*.gif;vendor/**;coverage/**;tmp/**;rdoc/**"
+let g:ctrlp_map = "<leader>t"
 
 " Regenerate tags
 map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
@@ -149,7 +148,7 @@ map <Nul> za
 imap <Nul> <C-o>za
 
 " initialize new files
-autocmd BufNewFile *.rb 0put = '# -*- encoding : utf-8 -*-' | 2
+autocmd BufNewFile *.rb 0put = '# encoding: utf-8' | 2
 autocmd BufNewFile *.py 0put = '#!/usr/bin/env python' | 2
 autocmd BufNewFile *.py 1put = '# -*- coding: utf-8 -*-' | 4
 
