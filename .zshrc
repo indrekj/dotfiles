@@ -74,10 +74,17 @@ alias mkdir='nocorrect mkdir'
 alias git tag='nocorrect git tag'
 
 # colors and shorthands
-alias ls='ls --color=auto'
-alias l="ls --color=auto"
-alias l.='ls -d .[a-zA-Z]* --color=auto'
-alias ll='ls -l --color=auto'
+if [ "$(uname)" = "Darwin" ]; then
+  alias ls='ls -G'
+  alias l='ls -G'
+  alias l.='ls -d .[a-zA-Z]* -G'
+  alias ll='ls -l -G'
+else
+  alias ls='ls --color=auto'
+  alias l="ls --color=auto"
+  alias l.='ls -d .[a-zA-Z]* --color=auto'
+  alias ll='ls -l --color=auto'
+fi
 alias d='ls -d `find . -maxdepth 1 -type d -not -name ".*"`'
 alias q='exit'
 alias :q='exit'
