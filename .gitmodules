@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/vim-yard"]
 	path = .vim/bundle/vim-yard
 	url = git://github.com/postmodern/vim-yard.git
+[submodule ".vim/bundle/vim-blockle"]
+	path = .vim/bundle/vim-blockle
+	url = git://github.com/jgdavey/vim-blockle.git

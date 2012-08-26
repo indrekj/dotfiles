@@ -363,3 +363,5 @@ export RUBY_DISABLE_GC_FOR_SPECS="true"
 # Use 1.9
 export RBXOPT="-X19"
 export JRUBY_OPTS="--1.9"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -111,7 +111,8 @@ autocmd FileType text setlocal textwidth=78
 let g:ctrlp_map = "<leader>t"
 
 " Regenerate tags
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
+"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
+map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -131,9 +132,18 @@ imap <PageUp> <C-O><C-U>
 imap <PageDown> <C-O><C-D>
 set nostartofline
 
+" Move line(s) of text using Alt+j/k
+" Figure out why this is not working?
+nnoremap <silent> <A-j> :m+<CR>==
+nnoremap <silent> <A-k> :m-2<CR>==
+inoremap <silent> <A-j> <Esc>:m+<CR>==gi
+inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
+vnoremap <silent> <A-j> :m'>+<CR>gv=gv
+vnoremap <silent> <A-k> :m-2<CR>gv=gv
+
 " move between several split windows maximizing the active one
-nmap <C-J> <C-W>j<C-W>_
-nmap <C-K> <C-W>k<C-W>_
+nmap <C-J> <C-W>j
+nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
 
