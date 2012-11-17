@@ -253,7 +253,6 @@ setopt                      \
     numeric_glob_sort       \
     NO_overstrike           \
     path_dirs               \
-    posix_builtins          \
     NO_print_exit_value     \
     NO_prompt_cr            \
     prompt_subst            \
@@ -351,6 +350,7 @@ precmd
 
 # rvm
 [ -e "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Ruby
 export RUBY_HEAP_MIN_SLOTS=1000000
@@ -364,4 +364,7 @@ export RUBY_DISABLE_GC_FOR_SPECS="true"
 export RBXOPT="-X19"
 export JRUBY_OPTS="--1.9"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export GOROOT=/usr/local/go
+
+# Java
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
