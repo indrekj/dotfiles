@@ -14,15 +14,18 @@ set softtabstop=2     " spaces feel like tabs
 set smartindent       " auto tabs when going to next line
 set modeline
 set incsearch
-set autoindent        " always set autoindenting on
-set copyindent        " copy the previous indentation on autoindenting
+set autoindent        " always set auto-indenting on
+set copyindent        " copy the previous indentation on auto-indenting
 set ruler             " line and column number
 set backspace=indent,eol,start
 set encoding=utf-8
-set confirm           " asks confirmation when readonly etc
+set confirm           " asks confirmation when read-only etc
 set scrolloff=3       " keep 3 lines when scrolling
 set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
+set nospell
+set spelllang=en
+set history=1000
 
 " This makes RVM work inside Vim. I have no idea why.
 set shell=bash
@@ -54,12 +57,12 @@ set foldmethod=indent
 set foldlevelstart=99
 set smartcase         " case sensitive
 set pastetoggle=<F11>
-set foldcolumn=0      " column for foldmarks
+set foldcolumn=0      " column for fold marks
 set wmh=0             " minimal window height
 set hidden            " less warning when dealing with buffers
 
-set laststatus=2                " always show statusline
-set statusline=                 " build the statusline
+set laststatus=2                " always show status line
+set statusline=                 " build the status line
 set statusline+=%-3.3n\         " buffer number
 set statusline+=%f\             " filename
 set statusline+=%h%m%r%w        " status flags
@@ -75,10 +78,31 @@ set completeopt=menu,preview
 let mapleader = ";"
 let ruby_operators = 1 " hightlight ruby operators
 
-" coffescript uses this
-" it must be added before filetype plugin indent on
+" required by Vundle
 filetype off
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'slim-template/vim-slim'
+Bundle 'clones/vim-l9'
+Bundle 'depuracao/vim-rdoc'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'godlygeek/tabular'
+Bundle 'jgdavey/vim-blockle'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'postmodern/vim-yard'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-surround'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/AutoTag'
 
 filetype plugin indent on
 syntax on
@@ -118,14 +142,21 @@ autocmd FileType text setlocal textwidth=78
 let g:ctrlp_map = "<leader>t"
 
 " Regenerate tags
-"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
+map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*
+"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
 map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
+
+map <leader>n :tabn<cr>
+map <leader>p :tabp<cr>
+
+" Copy/paste from system clipboard
+map <leader>y "+y
+map <leader>p "+p
 
 " move over screen lines not buffer lines
 "  helps with long wrapped lines (normal mode only)
@@ -138,6 +169,8 @@ map <PageDown> <C-D>
 imap <PageUp> <C-O><C-U>
 imap <PageDown> <C-O><C-D>
 set nostartofline
+
+nmap <silent> <leader>z :set spell!<cr>
 
 " Move line(s) of text using Alt+j/k
 " Figure out why this is not working?
@@ -161,13 +194,7 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 
 " set/unset folds with ctrl-space
-map <Nul> za
-imap <Nul> <C-o>za
-
-" initialize new files
-autocmd BufNewFile *.rb 0put = '# encoding: utf-8' | 2
-autocmd BufNewFile *.py 0put = '#!/usr/bin/env python' | 2
-autocmd BufNewFile *.py 1put = '# -*- coding: utf-8 -*-' | 4
+nmap <Nul> za
 
 " strip trailing whitespace with F5
 function! <SID>StripTrailingWhitespaces()

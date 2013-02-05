@@ -12,7 +12,8 @@ Xft.rgba: rgb
 ! Xcursor
 !
 
-Xcursor.theme: Lila-white
+Xcursor.theme: DMZ-White
+Xcursor.size: 16
 
 !
 ! urxvt
@@ -60,7 +61,9 @@ Xcursor.theme: Lila-white
 *hideTabbar: true
 *tripleclickwords: true
 *internalBorder: 0
-*depth: 32
+
+! Must have prefix of vim crashes
+URxvt*depth: 32
 
 *scrollstyle: plain
 *termName: rxvt-unicode
