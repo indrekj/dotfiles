@@ -70,10 +70,31 @@ set completeopt=menu,preview
 let mapleader = ";"
 let ruby_operators = 1 " hightlight ruby operators
 
-" coffescript uses this
-" it must be added before file type plugin indent on
+" required by Vundle
 filetype off
-call pathogen#infect()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+Bundle 'slim-template/vim-slim'
+Bundle 'clones/vim-l9'
+Bundle 'depuracao/vim-rdoc'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'godlygeek/tabular'
+Bundle 'jgdavey/vim-blockle'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/ctrlp.vim'
+Bundle 'postmodern/vim-yard'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-git'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-surround'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'vim-scripts/AutoTag'
 
 filetype plugin indent on
 syntax on
