@@ -25,6 +25,7 @@ set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
 set nospell
 set spelllang=en
+set history=1000
 
 " Use ack instead of grep
 set grepprg=ack-grep\ -a\ --ignore-dir=log\ --ignore-dir=tmp
@@ -146,6 +147,10 @@ map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>n :tabn<cr>
 map <leader>p :tabp<cr>
 
+" Copy/paste from system clipboard
+map <leader>y "+y
+map <leader>p "+p
+
 " move over screen lines not buffer lines
 "  helps with long wrapped lines (normal mode only)
 noremap k gk
@@ -182,13 +187,7 @@ imap <C-k> <Up>
 imap <C-l> <Right>
 
 " set/unset folds with ctrl-space
-map <Nul> za
-imap <Nul> <C-o>za
-
-" initialize new files
-autocmd BufNewFile *.rb 0put = '# encoding: utf-8' | 2
-autocmd BufNewFile *.py 0put = '#!/usr/bin/env python' | 2
-autocmd BufNewFile *.py 1put = '# -*- coding: utf-8 -*-' | 4
+nmap <Nul> za
 
 " strip trailing whitespace with F5
 function! <SID>StripTrailingWhitespaces()
