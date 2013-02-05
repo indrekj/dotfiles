@@ -12,7 +12,8 @@ Xft.rgba: rgb
 ! Xcursor
 !
 
-Xcursor.theme: Lila-white
+Xcursor.theme: DMZ-White
+Xcursor.size: 16
 
 !
 ! urxvt

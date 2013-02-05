@@ -68,10 +68,12 @@ export EDITOR='vim'
 alias pp='python -mjson.tool'
 
 # no spelling correction for these commands
+alias vim='nocorrect vim'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 alias git tag='nocorrect git tag'
+alias rspec tag='nocorrect rspec'
 
 # colors and shorthands
 if [ "$(uname)" = "Darwin" ]; then
@@ -356,8 +358,8 @@ precmd
 export RUBY_HEAP_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_HEAP_FREE_MIN=500000
+export RUBY_GC_MALLOC_LIMIT=60000000
+export RUBY_HEAP_FREE_MIN=200000
 export RUBY_DISABLE_GC_FOR_SPECS="true"
 
 # Use 1.9
@@ -367,4 +369,6 @@ export JRUBY_OPTS="--1.9"
 export GOROOT=/usr/local/go
 
 # Java
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"

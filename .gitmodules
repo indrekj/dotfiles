@@ -1,9 +1,6 @@
 [submodule "AutoTag"]
   path = .vim/bundle/AutoTag
   url = https://github.com/vim-scripts/AutoTag.git
-[submodule "supertab"]
-  path = .vim/bundle/supertab
-  url = https://github.com/ervandew/supertab.git
 [submodule "syntastic"]
   path = .vim/bundle/syntastic
   url = https://github.com/scrooloose/syntastic.git
@@ -61,3 +58,6 @@
 [submodule ".vim/bundle/vim-slim"]
 	path = .vim/bundle/vim-slim
 	url = git://github.com/bbommarito/vim-slim.git
+[submodule ".vim/bundle/YouCompleteMe"]
+	path = .vim/bundle/YouCompleteMe
+	url = git://github.com/Valloric/YouCompleteMe.git

@@ -14,15 +14,17 @@ set softtabstop=2     " spaces feel like tabs
 set smartindent       " auto tabs when going to next line
 set modeline
 set incsearch
-set autoindent        " always set autoindenting on
-set copyindent        " copy the previous indentation on autoindenting
+set autoindent        " always set auto-indenting on
+set copyindent        " copy the previous indentation on auto-indenting
 set ruler             " line and column number
 set backspace=indent,eol,start
 set encoding=utf-8
-set confirm           " asks confirmation when readonly etc
+set confirm           " asks confirmation when read-only etc
 set scrolloff=3       " keep 3 lines when scrolling
 set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
+set nospell
+set spelllang=en
 
 " Use ack instead of grep
 set grepprg=ack-grep\ -a\ --ignore-dir=log\ --ignore-dir=tmp
@@ -47,12 +49,12 @@ set foldmethod=indent
 set foldlevelstart=99
 set smartcase         " case sensitive
 set pastetoggle=<F11>
-set foldcolumn=0      " column for foldmarks
+set foldcolumn=0      " column for fold marks
 set wmh=0             " minimal window height
 set hidden            " less warning when dealing with buffers
 
-set laststatus=2                " always show statusline
-set statusline=                 " build the statusline
+set laststatus=2                " always show status line
+set statusline=                 " build the status line
 set statusline+=%-3.3n\         " buffer number
 set statusline+=%f\             " filename
 set statusline+=%h%m%r%w        " status flags
@@ -69,7 +71,7 @@ let mapleader = ";"
 let ruby_operators = 1 " hightlight ruby operators
 
 " coffescript uses this
-" it must be added before filetype plugin indent on
+" it must be added before file type plugin indent on
 filetype off
 call pathogen#infect()
 
@@ -111,14 +113,17 @@ autocmd FileType text setlocal textwidth=78
 let g:ctrlp_map = "<leader>t"
 
 " Regenerate tags
-"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/* `rvm gemdir`/bundler/gems/*<CR><C-M>
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
+map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*
+"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
 map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
+
+map <leader>n :tabn<cr>
+map <leader>p :tabp<cr>
 
 " move over screen lines not buffer lines
 "  helps with long wrapped lines (normal mode only)
@@ -131,6 +136,8 @@ map <PageDown> <C-D>
 imap <PageUp> <C-O><C-U>
 imap <PageDown> <C-O><C-D>
 set nostartofline
+
+nmap <silent> <leader>z :set spell!<cr>
 
 " Move line(s) of text using Alt+j/k
 " Figure out why this is not working?
