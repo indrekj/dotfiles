@@ -24,6 +24,13 @@ set scrolloff=3       " keep 3 lines when scrolling
 set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
 
+" This makes RVM work inside Vim. I have no idea why.
+set shell=bash
+
+" Disable sounds in mac
+set visualbell
+set t_vb=
+
 " Use ack instead of grep
 set grepprg=ack-grep\ -a\ --ignore-dir=log\ --ignore-dir=tmp
 
