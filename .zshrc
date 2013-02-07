@@ -15,6 +15,10 @@ promptinit
 # custom function for pkill completion (same as killall)
 compdef -a _pkill pkill
 
+# bash style words (delete at / delimiter, etc)
+autoload -U select-word-style
+select-word-style bash
+
 # functions for completiong whole command lines
 autoload -U up-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -97,11 +101,6 @@ alias -g '....'='../../..'
 alias -g '.....'='../../../..'
 alias -g '......'='../../../../..'
 alias -g '.......'='../../../../../..'
-
-alias makepasswd="makepasswd --chars=10"
-
-# alias support for 'which'
-# alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
 
 # find normally doesn't need globbing but it does
 #  use wildcards, this makes: find -name *asd* wor
@@ -295,12 +294,7 @@ bindkey 'Ob' down-line-or-history         # ctrl-down
 bindkey '[a' up-line-or-history           # shift-up
 bindkey '[b' down-line-or-history         # shift-down
 
-# same for ctrl-page-up/down
-#bindkey '[5^' up-line-or-beginning-search   # ctrl-page-up
-#bindkey '[6^' down-line-or-beginning-search # ctrl-page-down
-
-bindkey '' backward-delete-word           # ctrl-backspace
-bindkey "\e" backward-delete-word         # alt-backspace
+bindkey '' backward-kill-word             # ctrl-backspace
 
 bindkey '^[^[[D' backward-delete-word       # shift-left
 bindkey '^[^[[C' delete-word                # shift-right
@@ -312,8 +306,6 @@ else
     bindkey '^[Od' backward-word            # ctrl-left
     bindkey '^[Oc' forward-word             # ctrl-right
 fi
-
-bindkey '^[[11~' run-help                   # f1
 
 # use reset not clear-screen for clearing the screen
 #  this way the backlog is also cleared
@@ -330,11 +322,6 @@ toline() {
         echo -n "${TEMPVAR} "
     done
 }
-
-# show current directory in terminal title bar
-chpwd() {
-}
-chpwd
 
 precmd() {
 	[[ -t 1 ]] || return
