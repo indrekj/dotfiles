@@ -72,8 +72,14 @@ set statusline+=0x%-8B          " character value
 set statusline+=%-14(%l,%c%V%)  " line, character
 set statusline+=%<%P            " file position
 
-set complete=.,w,b,u,i
-set completeopt=menu,preview
+" Move line(s) of text using Alt+j/k
+set termencoding=latin1
+nnoremap <silent> <A-j> :m+<CR>==
+nnoremap <silent> <A-k> :m-2<CR>==
+inoremap <silent> <A-j> <Esc>:m+<CR>==gi
+inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
+vnoremap <silent> <A-j> :m'>+<CR>gv=gv
+vnoremap <silent> <A-k> :m-2<CR>gv=gv
 
 let mapleader = ";"
 let ruby_operators = 1 " hightlight ruby operators
@@ -152,7 +158,7 @@ map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
 
 map <leader>n :tabn<cr>
-map <leader>p :tabp<cr>
+map <leader>m :tabp<cr>
 
 " Copy/paste from system clipboard
 map <leader>y "+y

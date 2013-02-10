@@ -61,6 +61,7 @@ Xcursor.size: 16
 *hideTabbar: true
 *tripleclickwords: true
 *internalBorder: 0
+*meta8: true
 
 ! Must have prefix of vim crashes
 URxvt*depth: 32

@@ -1,0 +1,29 @@
+#!/bin/bash
+
+author=`git config --get user.name`
+
+commits() {
+  git log --author="$author" --no-merges --format="%cd %s" --date=short
+}
+
+main() {
+  LAST_DATE=""
+
+  commits | sort -u -r | while read COMMIT; do
+    DATE=`echo $COMMIT | cut -d ' ' -f1`
+    SUBJECT=`echo $COMMIT | cut -d ' ' -f2-`
+
+    if [ "$LAST_DATE" != "$DATE" ]; then
+      LAST_DATE=$DATE
+      echo
+      echo
+      echo [$DATE]
+    fi
+
+    IFS="
+"
+    printf "%s. " "$SUBJECT"
+  done
+}
+
+main | less
