@@ -73,7 +73,7 @@ set statusline+=%-14(%l,%c%V%)  " line, character
 set statusline+=%<%P            " file position
 
 " Move line(s) of text using Alt+j/k
-set termencoding=latin1
+"set termencoding=latin1
 nnoremap <silent> <A-j> :m+<CR>==
 nnoremap <silent> <A-k> :m-2<CR>==
 inoremap <silent> <A-j> <Esc>:m+<CR>==gi
@@ -109,6 +109,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/AutoTag'
+Bundle 'mhinz/vim-startify'
 
 filetype plugin indent on
 syntax on

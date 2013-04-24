@@ -77,7 +77,7 @@ alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
 alias git tag='nocorrect git tag'
-alias rspec tag='nocorrect rspec'
+alias rspec='nocorrect rspec'
 
 # colors and shorthands
 if [ "$(uname)" = "Darwin" ]; then
