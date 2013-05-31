@@ -25,6 +25,7 @@
 [core]
   editor = vim
 	autocrlf = input
+	excludesfile = /home/innu/.gitignore_global
 [diff]
   wordRegex = (, )?[^[:space:],().]+[push]
   default = current
