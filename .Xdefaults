@@ -4,9 +4,11 @@
 
 Xft.dpi: 109
 Xft.hinting: true
-Xft.hintstyle: hintfull
+Xft.autohint: false
+Xft.hintstyle: hintslight
 Xft.antialias: true
 Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
 
 !
 ! Xcursor
@@ -40,7 +42,8 @@ Xcursor.size: 16
 *hideButtons:   true
 
 !urxvt*font: xft:DejaVu Sans Mono:size=11
-*font: xft:Inconsolata:pixelsize=20
+*xftAntialias: true
+*font: xft:Inconsolata:pixelsize=18:antialias=true:hinting=true
 
 ! TODO: use alt or rxvt own stuff. we use ctrl-num keys in vim
 ! Bind C-0, C-1, ..., C-6 activate larger fonts.

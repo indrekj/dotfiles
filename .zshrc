@@ -70,6 +70,8 @@ export EDITOR='vim'
 
 # Aliases
 alias pp='python -mjson.tool'
+alias spotify-next='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next'
+alias spotify-pause='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
 
 # no spelling correction for these commands
 alias vim='nocorrect vim'
