@@ -70,6 +70,8 @@ export EDITOR='vim'
 
 # Aliases
 alias pp='python -mjson.tool'
+alias spotify-next='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next'
+alias spotify-pause='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
 
 # no spelling correction for these commands
 alias vim='nocorrect vim'
@@ -359,3 +361,5 @@ export GOROOT=/usr/local/go
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
 
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+
+PATH=$PATH:$HOME/.cabal/bin

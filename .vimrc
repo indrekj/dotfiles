@@ -49,7 +49,6 @@ set wildignore+=*.luac                           " Lua byte code
 set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=classes
-set wildignore+=lib
 set wildignore+=log
 
 set foldlevel=100
@@ -81,8 +80,14 @@ inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
 vnoremap <silent> <A-j> :m'>+<CR>gv=gv
 vnoremap <silent> <A-k> :m-2<CR>gv=gv
 
+" ; key repeats last search. bind it to ;; so we can use ; as a leader key
+nmap ;; ;<cr>
+
 let mapleader = ";"
+
 let ruby_operators = 1 " hightlight ruby operators
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
 
 " required by Vundle
 filetype off
@@ -129,11 +134,6 @@ inoremap # X<BS>#
 source $VIMRUNTIME/filetype.vim
 source $VIMRUNTIME/macros/matchit.vim
 
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
-
 autocmd BufEnter *.html set filetype=xhtml
 autocmd BufEnter */nginx/*.conf* set filetype=nginx
 autocmd BufEnter *.html.erb source $HOME/.vim/syntax/html5.vim
@@ -149,7 +149,7 @@ autocmd FileType text setlocal textwidth=78
 let g:ctrlp_map = "<leader>t"
 
 " Regenerate tags
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*
+map <leader>rt :!find . -iname *.rb \| xargs ctags --extra=+f
 "map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
 
 " Edit another file in the same directory as the current file
