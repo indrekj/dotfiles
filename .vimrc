@@ -35,7 +35,7 @@ set visualbell
 set t_vb=
 
 " Use ack instead of grep
-set grepprg=ack-grep\ -a\ --ignore-dir=log\ --ignore-dir=tmp
+set grepprg=ack-grep\ --ignore-dir=log\ --ignore-dir=tmp
 
 set wildmode=list:longest
 set wildignore+=.hg,.git,.svn                    " Version control
