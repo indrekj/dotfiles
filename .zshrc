@@ -344,7 +344,7 @@ precmd
 #PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Ruby
-export RUBY_HEAP_MIN_SLOTS=1000000
+export RUBY_HEAP_GC_MIN_SLOTS=1000000
 export RUBY_HEAP_SLOTS_INCREMENT=1000000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=60000000
@@ -363,3 +363,6 @@ export GOROOT=/usr/local/go
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 PATH=$PATH:$HOME/.cabal/bin
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

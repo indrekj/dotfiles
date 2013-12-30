@@ -114,7 +114,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/AutoTag'
-Bundle 'mhinz/vim-startify'
 
 filetype plugin indent on
 syntax on
@@ -141,6 +140,7 @@ autocmd BufEnter *.html.erb source $HOME/.vim/syntax/html5.vim
 autocmd BufEnter *.prawn set filetype=ruby
 autocmd BufEnter Guardfile set filetype=ruby
 autocmd BufEnter Gemfile set filetype=ruby
+autocmd BufEnter *.slim set filetype=slim
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
@@ -149,8 +149,8 @@ autocmd FileType text setlocal textwidth=78
 let g:ctrlp_map = "<leader>t"
 
 " Regenerate tags
-map <leader>rt :!find . -iname *.rb \| xargs ctags --extra=+f
-"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
+"map <leader>rt :!find . -iname *.rb \| xargs ctags --extra=+f
+map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
