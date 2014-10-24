@@ -34,9 +34,6 @@ set shell=bash
 set visualbell
 set t_vb=
 
-" Use ack instead of grep
-set grepprg=ack-grep\ --ignore-dir=log\ --ignore-dir=tmp
-
 set wildmode=list:longest
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
@@ -50,6 +47,10 @@ set wildignore+=migrations                       " Django migrations
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=classes
 set wildignore+=log
+set wildignore+=source_maps                      " Compiled coffeescript/etc
+set wildignore+=bower_components                 " Bower components
+set wildignore+=public                           " Public dir
+set wildignore+=node_modules
 
 set foldlevel=100
 set foldmethod=indent
@@ -84,10 +85,18 @@ vnoremap <silent> <A-k> :m-2<CR>gv=gv
 nmap ;; ;<cr>
 
 let mapleader = ";"
+let &winwidth = 90
 
 let ruby_operators = 1 " hightlight ruby operators
 let g:rubycomplete_buffer_loading = 1
 let g:rubycomplete_classes_in_global = 1
+
+" Use ag instead of grep
+"   brew install the_silver_searcher
+let g:ackprg = 'ag --nogroup --nocolor --column'
+ca grep Ag
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
 
 " required by Vundle
 filetype off
@@ -101,7 +110,7 @@ Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'godlygeek/tabular'
 Bundle 'jgdavey/vim-blockle'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
+Bundle 'ctrlpvim/ctrlp.vim'
 Bundle 'postmodern/vim-yard'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-cucumber'
@@ -111,9 +120,14 @@ Bundle 'tpope/vim-haml'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-bundler'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'vim-scripts/AutoTag'
+Bundle 'danchoi/ruby_bashrockets.vim'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'rking/ag.vim'
 
 filetype plugin indent on
 syntax on
@@ -145,8 +159,9 @@ autocmd BufEnter *.slim set filetype=slim
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
 
-" FuzzyFinderTextMate
+" CtrlP
 let g:ctrlp_map = "<leader>t"
+let g:ctrlp_root_markers = ['start', 'package.json']
 
 " Regenerate tags
 "map <leader>rt :!find . -iname *.rb \| xargs ctags --extra=+f
@@ -165,6 +180,10 @@ map <leader>m :tabp<cr>
 map <leader>y "+y
 map <leader>p "+p
 
+" splitjoin
+nmap <leader>J :SplitjoinJoin<cr>
+nmap <leader>S :SplitjoinSplit<cr>
+
 " move over screen lines not buffer lines
 "  helps with long wrapped lines (normal mode only)
 noremap k gk
@@ -178,6 +197,23 @@ imap <PageDown> <C-O><C-D>
 set nostartofline
 
 nmap <silent> <leader>z :set spell!<cr>
+
+" => to :, " to ' and add spaces
+function! PrettyHash()
+  :Bashrockets
+  :silent! s/\"\([a-zA-Z_]*\)\"\:/\1\:\ /g
+  :silent! s/\(\w\|\}\|\'\|\"\)\:\(\w\|{\|\'\|\"\)/\1\: \2/g
+  :silent! s/\"/\'/g
+  :silent! s/\(\w\|\}\|\'\|\"\),\(\w\)/\1, \2/g
+endfunction
+vnoremap <silent> <leader>h :call PrettyHash()<cr>
+
+function! SplitHash()
+  :silent! s/^\(\s\+\){\(.*\)/\1{\r\1\ \ \2/g
+  :silent! s/\(\w\|\}\|\'\|\"\|)\), \(\w\)/\1,\r\2/g
+  :silent! s/\}$/\r\}/g
+endfunction
+vnoremap <silent> <leader>j :call SplitHash()<cr>
 
 " Move line(s) of text using Alt+j/k
 " Figure out why this is not working?
@@ -193,6 +229,11 @@ nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-H> <C-W>h
 nmap <C-L> <C-W>l
+
+" nmap <C-J> :resize -5<cr>
+" nmap <C-K> :resize +5<cr>
+" nmap <C-H> :vertical resize -5<cr>
+" nmap <C-L> :vertical resize +5<cr>
 
 " In insert mode, hold down control to do movement, cursor keys suck.
 imap <C-h> <Left>

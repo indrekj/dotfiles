@@ -351,11 +351,11 @@ export RUBY_GC_MALLOC_LIMIT=60000000
 export RUBY_HEAP_FREE_MIN=200000
 #export RUBY_DISABLE_GC_FOR_SPECS="true"
 
-# Use 1.9
-export RBXOPT="-X19"
-export JRUBY_OPTS="--1.9"
-
 export GOROOT=/usr/local/go
+
+# jruby
+export JRUBY_OPTS="--dev --2.0"
+export JRUBY_HOME="/Users/indrek/.rvm/rubies/jruby-1.7.15/lib"
 
 # Java
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
@@ -365,4 +365,4 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 PATH=$PATH:$HOME/.cabal/bin
 
 ### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PATH="/usr/local/heroku/bin:$PATH:$HOME/depot_tools"
