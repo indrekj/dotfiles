@@ -355,7 +355,6 @@ export GOROOT=/usr/local/go
 
 # jruby
 export JRUBY_OPTS="--dev --2.0"
-export JRUBY_HOME="/Users/indrek/.rvm/rubies/jruby-1.7.15/lib"
 
 # Java
 #export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
