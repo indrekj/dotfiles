@@ -93,10 +93,10 @@ let g:rubycomplete_classes_in_global = 1
 
 " Use ag instead of grep
 "   brew install the_silver_searcher
-let g:ackprg = 'ag --nogroup --nocolor --column'
-ca grep Ag
+let g:agprg = 'ag --nogroup'
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
+set grepprg=ag\ --nogroup
 
 " required by Vundle
 filetype off
