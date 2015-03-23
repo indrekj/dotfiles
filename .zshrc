@@ -66,7 +66,7 @@ PROMPT=$'%n@%m$(prompt_info) %{\e[1;38;5;33m%}~%{\e[0m%} '
 RPROMPT=' %~'                 # prompt for right side of screen
 
 # Constants
-export EDITOR='vim'
+export EDITOR='nvim'
 
 # Aliases
 alias pp='python -mjson.tool'
@@ -74,7 +74,7 @@ alias spotify-next='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPla
 alias spotify-pause='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
 
 # no spelling correction for these commands
-alias vim='nocorrect vim'
+alias vim='nocorrect nvim'
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
@@ -339,9 +339,8 @@ precmd
 # local machine-specific configuration if exists
 [ -e ~/.zshrc_additional ] && source ~/.zshrc_additional
 
-# rvm
-[ -e "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# to load brew installed programs before the system ones
+export PATH=/usr/local/bin:$PATH
 
 # Ruby
 export RUBY_HEAP_GC_MIN_SLOTS=1000000
@@ -363,5 +362,14 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 PATH=$PATH:$HOME/.cabal/bin
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH:$HOME/depot_tools"
+export GOROOT=/usr/local/Cellar/go/1.3.1/libexec/
+export GOPATH=$HOME/go
+
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.2.4
+export PATH=$PATH:$EC2_HOME/bin
+
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+# rvm
+[ -e "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

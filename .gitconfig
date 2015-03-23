@@ -11,7 +11,7 @@
   mine = "!git log --author='Indrek Juhkam' --format='%h %ad %s'"
   mine-by-day = "!git-mine-by-day"
   untracked = ls-files --others --exclude-standard
-  edit-modified = "!f() { git ls-files --modified --exclude-standard | sort -u ; }; vim `f`"
+  edit-modified = "!f() { git ls-files --modified --exclude-standard | sort -u ; }; nvim `f`"
 [format]
 [apply]
   whitespace = nowarn
@@ -24,9 +24,9 @@
   interactive = auto
   grep = auto
 [core]
-  editor = vim
+  editor = nvim
 	autocrlf = input
-	excludesfile = /home/innu/.gitignore_global
+	excludesfile = /Users/indrek/.gitignore
 [diff]
   wordRegex = (, )?[^[:space:],().]+[push]
   default = current
@@ -36,4 +36,4 @@
   autoupdate = true
   enabled = true
 [push]
-  default = tracking
+  default = current

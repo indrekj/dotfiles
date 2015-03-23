@@ -128,6 +128,7 @@ Bundle 'danchoi/ruby_bashrockets.vim'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'rking/ag.vim'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on
 syntax on
@@ -172,9 +173,6 @@ map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclu
 map <leader>e :e <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>s :split <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
-
-map <leader>n :tabn<cr>
-map <leader>m :tabp<cr>
 
 " Copy/paste from system clipboard
 map <leader>y "+y
