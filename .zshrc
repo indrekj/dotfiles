@@ -4,17 +4,6 @@
 # only do this if your system has a global profile :)
 source /etc/profile
 
-# make opts
-MAKEOPTS="-j5"
-
-# autoloads
-autoload -U compinit promptinit
-compinit
-promptinit
-
-# custom function for pkill completion (same as killall)
-compdef -a _pkill pkill
-
 # bash style words (delete at / delimiter, etc)
 autoload -U select-word-style
 select-word-style bash
@@ -24,95 +13,6 @@ autoload -U up-line-or-beginning-search
 zle -N up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N down-line-or-beginning-search
-
-# Prompts
-autoload colors ; colors
-
-git_prompt_info() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-  echo ${ref#refs/heads/}
-}
-
-hg_prompt_info() {
-  echo `hg branch 2>/dev/null`
-}
-
-rvm_version() {
-  gemset=$(echo $GEM_HOME | awk -F'@' '{print $2}')
-  version=$(echo $MY_RUBY_HOME | awk -F'-' '{print $2}')
-  if [ "$gemset" != "" ] && [ "$version" != "" ]; then
-    echo "$version%%$gemset"
-  fi
-}
-
-prompt_info() {
-  git=$(git_prompt_info)
-  hg=$(hg_prompt_info)
-
-  if [ "$git" != "" ]; then
-    rvm=$(rvm_version)
-    if [ "$rvm" != "" ]; then
-      echo " %{$fg[green]%}[$git $rvm]"
-    else
-      echo " %{$fg[green]%}[$git]"
-    fi
-  elif [ "$hg" != "" ]; then
-    echo " %{$fg[red]%}[$hg]"
-  fi
-}
-
-# Note: wrap characters, that do *not* consume space in %{…%}
-PROMPT=$'%n@%m$(prompt_info) %{\e[1;38;5;33m%}~%{\e[0m%} '
-RPROMPT=' %~'                 # prompt for right side of screen
-
-# Constants
-export EDITOR='nvim'
-
-# Aliases
-alias pp='python -mjson.tool'
-alias spotify-next='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next'
-alias spotify-pause='DISPLAY=:0 dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause'
-
-# no spelling correction for these commands
-alias vim='nocorrect nvim'
-alias mv='nocorrect mv'
-alias cp='nocorrect cp'
-alias mkdir='nocorrect mkdir'
-alias git tag='nocorrect git tag'
-alias rspec='nocorrect rspec'
-
-# colors and shorthands
-if [ "$(uname)" = "Darwin" ]; then
-  alias ls='ls -G'
-  alias l='ls -G'
-  alias l.='ls -d .[a-zA-Z]* -G'
-  alias ll='ls -l -G'
-else
-  alias ls='ls --color=auto'
-  alias l="ls --color=auto"
-  alias l.='ls -d .[a-zA-Z]* --color=auto'
-  alias ll='ls -l --color=auto'
-fi
-alias d='ls -d `find . -maxdepth 1 -type d -not -name ".*"`'
-alias q='exit'
-alias :q='exit'
-
-#Avoid typing cd ../../ for going two dirs down and so on
-alias -g '...'='../..'
-alias -g '....'='../../..'
-alias -g '.....'='../../../..'
-alias -g '......'='../../../../..'
-alias -g '.......'='../../../../../..'
-
-# find normally doesn't need globbing but it does
-#  use wildcards, this makes: find -name *asd* wor
-#  like find -name '*asd*'
-alias find='noglob find'
-
-# history settings
-HISTFILE=~/.zshhistory
-HISTSIZE=50000
-SAVEHIST=50000
 
 # only ask if a list does not fit to the screen
 LISTMAX=0
@@ -277,38 +177,6 @@ setopt                      \
     zle                     \
     promptcr
 
-if [ "$TERM" = 'screen' -o "$TERM" = 'linux' ]; then
-    bindkey '[1~' vi-beginning-of-line    # home
-    bindkey '[4~' vi-end-of-line          # end
-else
-    bindkey '[7~' vi-beginning-of-line    # home
-    bindkey '[8~' vi-end-of-line          # end
-fi
-
-bindkey '[2~' beep                        # insert
-bindkey '[3~' delete-char                 # del
-bindkey '[5~' up-line-or-beginning-search   # page up
-bindkey '[6~' down-line-or-beginning-search # page down
-
-# make ctrl/shift-up/down work the same as up/down
-bindkey 'Oa' up-line-or-history           # ctrl-up
-bindkey 'Ob' down-line-or-history         # ctrl-down
-bindkey '[a' up-line-or-history           # shift-up
-bindkey '[b' down-line-or-history         # shift-down
-
-bindkey '' backward-kill-word             # ctrl-backspace
-
-bindkey '^[^[[D' backward-delete-word       # shift-left
-bindkey '^[^[[C' delete-word                # shift-right
-
-if [ "$TERM" = 'linux' ]; then
-    bindkey '^[[D' backward-word          # ctrl-left
-    bindkey '^[[C' forward-word           # ctrl-right
-else
-    bindkey '^[Od' backward-word            # ctrl-left
-    bindkey '^[Oc' forward-word             # ctrl-right
-fi
-
 # use reset not clear-screen for clearing the screen
 #  this way the backlog is also cleared
 reset-screen() {
@@ -335,41 +203,3 @@ precmd() {
   esac
 }
 precmd
-
-# local machine-specific configuration if exists
-[ -e ~/.zshrc_additional ] && source ~/.zshrc_additional
-
-# to load brew installed programs before the system ones
-export PATH=/usr/local/bin:$PATH
-
-# Ruby
-export RUBY_HEAP_GC_MIN_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=60000000
-export RUBY_HEAP_FREE_MIN=200000
-#export RUBY_DISABLE_GC_FOR_SPECS="true"
-
-export GOROOT=/usr/local/go
-
-# jruby
-export JRUBY_OPTS="--dev --2.0"
-
-# Java
-#export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
-
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
-
-PATH=$PATH:$HOME/.cabal/bin
-
-export GOROOT=/usr/local/Cellar/go/1.3.1/libexec/
-export GOPATH=$HOME/go
-
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.2.4
-export PATH=$PATH:$EC2_HOME/bin
-
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-# rvm
-[ -e "$HOME/.rvm/scripts/rvm" ] && source "$HOME/.rvm/scripts/rvm"
-#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

@@ -20,6 +20,7 @@ set scrolloff=3       " keep 3 lines when scrolling
 set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
 set history=1000
+set mouse=            " disable evil mouse
 "set number
 "set relativenumber
 syntax on
@@ -161,7 +162,6 @@ inoremap # X<BS>#
 
 " FILE TYPES / SYNTAX
 source $VIMRUNTIME/filetype.vim
-source $VIMRUNTIME/macros/matchit.vim
 
 autocmd BufEnter *.html set filetype=xhtml
 autocmd BufEnter */nginx/*.conf* set filetype=nginx
@@ -182,7 +182,8 @@ let g:ctrlp_root_markers = ['start', 'package.json']
 
 " Regenerate tags
 "map <leader>rt :!find . -iname *.rb \| xargs ctags --extra=+f
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
+"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
+map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log,tmp -R *<CR><C-M>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -230,7 +231,6 @@ endfunction
 vnoremap <silent> <leader>j :call SplitHash()<cr>
 
 " Move line(s) of text using Alt+j/k
-" Figure out why this is not working?
 nnoremap <silent> <A-j> :m+<CR>==
 nnoremap <silent> <A-k> :m-2<CR>==
 inoremap <silent> <A-j> <Esc>:m+<CR>==gi

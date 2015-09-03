@@ -12,6 +12,7 @@
   mine-by-day = "!git-mine-by-day"
   untracked = ls-files --others --exclude-standard
   edit-modified = "!f() { git ls-files --modified --exclude-standard | sort -u ; }; nvim `f`"
+  fix = commit --amend --no-edit
 [format]
 [apply]
   whitespace = nowarn
