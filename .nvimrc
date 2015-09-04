@@ -238,11 +238,21 @@ inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
 vnoremap <silent> <A-j> :m'>+<CR>gv=gv
 vnoremap <silent> <A-k> :m-2<CR>gv=gv
 
-" move between several split windows maximizing the active one
+" move between several split windows
 nmap <C-H> <C-W>h
 nmap <C-J> <C-W>j
 nmap <C-K> <C-W>k
 nmap <C-L> <C-W>l
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
+" terminal shortcuts
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-w>_ <C-\><C-n><C-w>_
+tnoremap <C-u> <C-\><C-n><C-u>
+tnoremap <C-d> <C-\><C-n><C-d>
 
 " grep for the word under the cursor
 nnoremap <Leader>w :split <CR> :grep <cword> . <CR>
@@ -271,8 +281,10 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 " Write the file and run tests for the given filename
 function! RunTests(filename)
   :w
-  :silent !echo;echo;echo;echo;echo
-  exec ":!rspec " . a:filename
+  :split
+  :enew
+  :call termopen([&sh, &shcf, "rspec " . a:filename], {'name':'running-tests'})
+  :startinsert
 endfunction
 
 " Set the spec file that tests will be run for.
@@ -297,14 +309,8 @@ function! RunTestFile(...)
   call RunTests(t:grb_test_file . command_suffix)
 endfunction
 
-function! RunNearestTest()
-  let spec_line_number = line('.')
-  call RunTestFile(":" . spec_line_number)
-endfunction
-
 map <leader>c :call RunTestFile()<cr>
-map <leader>C :call RunNearestTest()<cr>
-map <leader>a :call RunTests('')<cr>
+map <leader>x :bd! running-tests<cr>
 
 " nice colorscheme
 set background=dark
