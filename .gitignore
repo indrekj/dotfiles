@@ -2,3 +2,5 @@
 .vim/spell
 .vim/bundle/*
 !.vim/bundle/vundle
+.config/nvim/.init.vim-rplugin~
+.config/nvim/bundle

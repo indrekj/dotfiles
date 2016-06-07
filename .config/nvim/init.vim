@@ -35,12 +35,12 @@ set writebackup
 
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
-  set runtimepath+=/Users/indrek/.vim/bundle/neobundle.vim/
-  set runtimepath+=/Users/indrek/.vim/
+  " Required:
+  set runtimepath+=/home/indrek/.config/nvim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/Users/indrek/.vim/bundle'))
+call neobundle#begin(expand('/home/indrek/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
@@ -83,8 +83,13 @@ NeoBundle 'kylef/apiblueprint.vim'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'justinmk/vim-sneak'
 
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
 " Required:
 call neobundle#end()
+
+" Required:
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
