@@ -7,12 +7,9 @@
   df = diff --stat -p --no-prefix
   view = log --stat -b -p --no-prefix
   tree = log --graph --oneline --decorate
-  ra = log --graph --abbrev-commit --date=relative --all
-  mine = "!git log --author='Indrek Juhkam' --format='%h %ad %s'"
-  mine-by-day = "!git-mine-by-day"
-  untracked = ls-files --others --exclude-standard
-  edit-modified = "!f() { git ls-files --modified --exclude-standard | sort -u ; }; nvim `f`"
   fix = commit --amend --no-edit
+  fixup = commit --fixup=@
+  sorted-branches = for-each-ref --sort=-committerdate refs/heads/
 [format]
 [apply]
   whitespace = nowarn
@@ -31,6 +28,7 @@
 [diff]
   wordRegex = (, )?[^[:space:],().]+[push]
   default = current
+  algorithm = patience
 [pager]
   status = false
 [rerere]
@@ -38,3 +36,7 @@
   enabled = true
 [push]
   default = current
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true

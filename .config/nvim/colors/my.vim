@@ -1,27 +1,32 @@
-" Vim color scheme
-" Name:         vividchalk.vim
-" Author:       Tim Pope <vimNOSPAM@tpope.info>
-" Version:      2.0
-" GetLatestVimScripts: 1891 1 :AutoInstall: vividchalk.vim
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set background=dark
 
-" Based on the Vibrank Ink theme for TextMate
-" Distributable under the same terms as Vim itself (see :help license)
-
-if has("gui_running")
-    set background=dark
-endif
+" Remove all existing highlighting and set the defaults.
 hi clear
+
+" Load the syntax highlighting defaults, if it's enabled.
 if exists("syntax_on")
-   syntax reset
+  syntax reset
 endif
 
-function! s:hifg(group,guifg)
-    exe "highlight ".a:group." guifg=".a:guifg
-endfunction
-
-function! s:hibg(group,guibg)
-    exe "highlight ".a:group." guibg=".a:guibg
-endfunction
+let g:terminal_color_0  = '#2e3436'
+let g:terminal_color_1  = '#cc0000'
+let g:terminal_color_2  = '#4e9a06'
+let g:terminal_color_3  = '#c4a000'
+let g:terminal_color_4  = '#3465a4'
+let g:terminal_color_5  = '#75507b'
+let g:terminal_color_6  = '#0b939b'
+let g:terminal_color_7  = '#d3d7cf'
+let g:terminal_color_8  = '#555753'
+let g:terminal_color_9  = '#ef2929'
+let g:terminal_color_10 = '#8ae234'
+let g:terminal_color_11 = '#fce94f'
+let g:terminal_color_12 = '#729fcf'
+let g:terminal_color_13 = '#ad7fa8'
+let g:terminal_color_14 = '#00f5e9'
+let g:terminal_color_15 = '#eeeeec'
+let g:terminal_color_background = '#202020'
+let g:terminal_color_foreground = '#eee'
 
 hi link railsMethod         PreProc
 hi link rubyDefine          Keyword
@@ -47,11 +52,11 @@ highlight link diffLine         PreProc
 highlight link diffSubname      Comment
 
 highlight Normal        guifg=#EEEEEE
-highlight StatusLine    guifg=Black   guibg=#aabbee gui=bold cterm=bold
-highlight StatusLineNC  guifg=#444444 guibg=#aaaaaa gui=none cterm=none
-highlight StatusLine    ctermbg=117
+highlight StatusLine    guifg=Black   guibg=#aabbee gui=bold
+highlight StatusLineNC  guifg=#444444 guibg=#aaaaaa gui=none
+"highlight StatusLine    ctermbg=117
 
-highlight WildMenu      guifg=Black guibg=#ffff00 gui=bold cterm=bold
+highlight WildMenu      guifg=Black guibg=#ffff00 gui=bold
 highlight Cursor        guifg=Black guibg=White
 highlight CursorLine    guibg=#333333 guifg=NONE
 highlight CursorColumn  guibg=#333333 guifg=NONE
@@ -59,15 +64,15 @@ highlight NonText       guifg=#404040
 highlight SpecialKey    guifg=#404040
 highlight Directory     none
 high link Directory     Identifier
-highlight ErrorMsg      guibg=Red ctermbg=DarkRed guifg=NONE ctermfg=NONE
-highlight Search        guifg=NONE ctermfg=NONE gui=none cterm=none guibg=#555555
+highlight ErrorMsg      guibg=Red guifg=NONE
+highlight Search        guifg=NONE gui=none guibg=#555555
 highlight IncSearch     guifg=White guibg=Black
 highlight MoreMsg       guifg=#00AA00
 highlight LineNr        guifg=#DDEEFF guibg=#222222
 highlight Question      none
 high link Question      MoreMsg
 highlight Title         guifg=Magenta
-highlight VisualNOS     gui=none cterm=none guibg=#444444
+highlight VisualNOS     gui=none guibg=#444444
 highlight Visual        guibg=#555577
 highlight MatchParen    guibg=#1100AA
 highlight WarningMsg    guifg=Red
@@ -78,19 +83,19 @@ high link FoldColumn    Folded
 highlight DiffAdd       guibg=DarkBlue
 highlight DiffChange    guibg=DarkMagenta
 highlight DiffDelete    gui=bold guifg=Blue guibg=DarkCyan
-highlight DiffText      cterm=bold gui=bold guibg=Red
+highlight DiffText      gui=bold guibg=Red
 
-highlight Pmenu         guifg=White gui=bold cterm=bold guibg=#000099
-highlight PmenuSel      guifg=White gui=bold cterm=bold guibg=#5555FF
+highlight Pmenu         guifg=White gui=bold guibg=#000099
+highlight PmenuSel      guifg=White gui=bold guibg=#5555FF
 highlight PmenuSbar     guibg=Grey
 highlight PmenuThumb    guibg=White
-highlight TabLine       gui=underline cterm=underline guifg=#BBBBBB guibg=#333333
+highlight TabLine       gui=underline guifg=#BBBBBB guibg=#333333
 highlight TabLineSel    guifg=White guibg=Black
-highlight TabLineFill   gui=underline cterm=underline guifg=#BBBBBB guibg=#808080
+highlight TabLineFill   gui=underline guifg=#BBBBBB guibg=#808080
 
 highlight Type            gui=none
 highlight Statement       gui=none
-highlight Identifier      cterm=none
+"highlight Identifier      cterm=none
 highlight PreProc         guifg=#EDF8F9
 highlight Comment         guifg=#9933CC
 highlight Constant        guifg=#339999
@@ -105,3 +110,4 @@ highlight railsUserClass  guifg=#AAAAAA
 highlight Special         guifg=#33AA00
 highlight Regexp          guifg=#44B4CC
 highlight rubyMethod      guifg=#DDE93D
+highlight ColorColumn     guibg=#ed2939

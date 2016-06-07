@@ -26,6 +26,13 @@ set mouse=            " disable evil mouse
 syntax on
 filetype off
 
+" Backup
+set backup
+set backupdir=/tmp
+set backupskip=/tmp/*
+set directory=/tmp
+set writebackup
+
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   set runtimepath+=/Users/indrek/.vim/bundle/neobundle.vim/
@@ -72,6 +79,9 @@ NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'solars/github-vim'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'kylef/apiblueprint.vim'
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'justinmk/vim-sneak'
 
 " Required:
 call neobundle#end()
@@ -132,8 +142,12 @@ inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
 vnoremap <silent> <A-j> :m'>+<CR>gv=gv
 vnoremap <silent> <A-k> :m-2<CR>gv=gv
 
-" ; key repeats last search. bind it to ;; so we can use ; as a leader key
-nmap ;; ;<cr>
+" ; key repeats last search. bind it to \ and ;; so we can use ; as a leader key
+nnoremap ;; ;
+nnoremap \ ;
+map ;; <Plug>SneakNext
+map \ <Plug>SneakNext
+let g:sneak#s_next = 1
 
 let mapleader = ";"
 let &winwidth = 90
@@ -144,10 +158,12 @@ let g:rubycomplete_classes_in_global = 1
 
 " Use ag instead of grep
 "   brew install the_silver_searcher
-let g:agprg = 'ag --nogroup'
+let g:agprg = 'ag --vimgrep'
+let g:ag_highlight=1
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching = 0
 set grepprg=ag\ --vimgrep
+nnoremap <leader>a :Ag<space>
 
 " Show trailing whitespace, but don't highlight the extra whitespace while
 " typing, only after leaving insert
@@ -167,7 +183,7 @@ autocmd BufEnter *.html set filetype=xhtml
 autocmd BufEnter */nginx/*.conf* set filetype=nginx
 autocmd BufEnter *.html.erb source $HOME/.vim/syntax/html5.vim
 autocmd BufEnter *.es6 set filetype=javascript
-
+autocmd BufEnter Procfile set filetype=ruby
 autocmd BufEnter *.prawn set filetype=ruby
 autocmd BufEnter Guardfile set filetype=ruby
 autocmd BufEnter Gemfile set filetype=ruby
@@ -239,10 +255,10 @@ vnoremap <silent> <A-j> :m'>+<CR>gv=gv
 vnoremap <silent> <A-k> :m-2<CR>gv=gv
 
 " move between several split windows
-nmap <C-H> <C-W>h
-nmap <C-J> <C-W>j
-nmap <C-K> <C-W>k
-nmap <C-L> <C-W>l
+nnoremap <C-h> <C-W>h
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-l> <C-W>l
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
@@ -321,6 +337,15 @@ endfunction
 map <leader>c :call RunTestFile()<cr>
 map <leader>x :bd! running-tests<cr>
 
-" nice colorscheme
+" Haskell
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+
+" Highlight 121st column if text flows over it
+call matchadd('ColorColumn', '\%>120v.\+', 100)
+
+" disabled because 'my' expects gui* commands, but neovim disabled gui_running
+" so it expects cterm* commands. Sad :(
+"colorscheme my
 set background=dark
-colorscheme my
+colorscheme vividchalk
