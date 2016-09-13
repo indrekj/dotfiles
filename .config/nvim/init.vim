@@ -353,6 +353,7 @@ if exists("*gutentags#statusline")
   set statusline+=%{gutentags#statusline()}
 endif
 let g:gutentags_project_root = ['package.json', 'Brocfile.js', 'Capfile', 'Rakefile', 'bower.json', '.ruby-version', 'Gemfile']
+let g:gutentags_cache_dir = '~/.gutentags'
 let g:gutentags_project_info = []
 call add(g:gutentags_project_info, {'type': 'ruby', 'file': 'Gemfile'})
 call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
