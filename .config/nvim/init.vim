@@ -57,6 +57,7 @@ NeoBundle 'jgdavey/vim-blockle'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'postmodern/vim-yard'
+NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-fugitive'
@@ -97,6 +98,8 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
+
+let g:syntastic_javascript_checkers = ['eslint']
 
 " Disable sounds in mac
 set visualbell
