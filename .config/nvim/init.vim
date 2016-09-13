@@ -82,6 +82,7 @@ NeoBundle 'pangloss/vim-javascript'
 NeoBundle 'kylef/apiblueprint.vim'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'justinmk/vim-sneak'
+NeoBundle 'ludovicchabant/vim-gutentags'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -200,11 +201,6 @@ autocmd FileType text setlocal textwidth=78
 " CtrlP
 let g:ctrlp_map = "<leader>t"
 let g:ctrlp_root_markers = ['start', 'package.json']
-
-" Regenerate tags
-"map <leader>rt :!find . -iname *.rb \| xargs ctags --extra=+f
-"map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*<CR><C-M>
-map <leader>rt :!ctags --extra=+f --languages=-javascript --exclude=.git --exclude=log,tmp -R *<CR><C-M>
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
@@ -348,6 +344,18 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
 " Highlight 121st column if text flows over it
 call matchadd('ColorColumn', '\%>120v.\+', 100)
+
+" Gutentags
+if exists("*gutentags#statusline")
+  set statusline+=%{gutentags#statusline()}
+endif
+let g:gutentags_project_root = ['package.json', 'Brocfile.js', 'Capfile', 'Rakefile', 'bower.json', '.ruby-version', 'Gemfile']
+let g:gutentags_project_info = []
+call add(g:gutentags_project_info, {'type': 'ruby', 'file': 'Gemfile'})
+call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
+" Use -R because es-ctags doesn't support --options used by Gutentags to
+" specify the recursiveness
+let g:gutentags_ctags_executable_javascript = 'es-ctags -R'
 
 " disabled because 'my' expects gui* commands, but neovim disabled gui_running
 " so it expects cterm* commands. Sad :(
