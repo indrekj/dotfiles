@@ -8,6 +8,7 @@
   view = log --stat -b -p --no-prefix
   tree = log --graph --oneline --decorate
   fix = commit --amend --no-edit
+  fixc = "!f() { TARGET=$(git rev-parse "$1"); git commit --fixup=$TARGET ${@:2} && EDITOR=true git rebase -i --autostash --autosquash $TARGET^; }; f"
   fixup = commit --fixup=@
   sorted-branches = for-each-ref --sort=-committerdate refs/heads/
 [format]
