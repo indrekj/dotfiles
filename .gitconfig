@@ -16,6 +16,8 @@
   whitespace = nowarn
 [branch]
   autosetuprebase = remote
+[rebase]
+  autoStash = true
 [color]
   status = auto
   diff = auto
