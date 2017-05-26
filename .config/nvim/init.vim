@@ -61,6 +61,7 @@ NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'junegunn/gv.vim'
 NeoBundle 'tpope/vim-git'
 NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-rails'
@@ -84,6 +85,8 @@ NeoBundle 'kylef/apiblueprint.vim'
 NeoBundle 'bitc/vim-hdevtools'
 NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'ludovicchabant/vim-gutentags'
+NeoBundle 'elixir-lang/vim-elixir'
+NeoBundle 'rust-lang/rust.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
