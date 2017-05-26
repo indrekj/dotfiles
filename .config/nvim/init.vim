@@ -315,7 +315,7 @@ nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 function! RunTests(filename)
   :w
   :tabnew
-  :call termopen([&sh, &shcf, "rspec " . a:filename], {'name':'running-tests'})
+  :call termopen([&sh, &shcf, "bundle exec rspec " . a:filename], {'name':'running-tests'})
   :startinsert
 endfunction
 
