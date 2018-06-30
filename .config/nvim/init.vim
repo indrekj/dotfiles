@@ -48,45 +48,30 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'slim-template/vim-slim'
 NeoBundle 'clones/vim-l9'
-NeoBundle 'depuracao/vim-rdoc'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'godlygeek/tabular'
-NeoBundle 'jgdavey/vim-blockle'
-NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'postmodern/vim-yard'
 NeoBundle 'mtscout6/syntastic-local-eslint.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'tpope/vim-cucumber'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'junegunn/gv.vim'
-NeoBundle 'tpope/vim-git'
-NeoBundle 'tpope/vim-haml'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-rake'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-bundler'
 NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/AutoTag'
-NeoBundle 'danchoi/ruby_bashrockets.vim'
-NeoBundle 'AndrewRadev/splitjoin.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
 NeoBundle 'rking/ag.vim'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'tpope/vim-fireplace'
-NeoBundle 'guns/vim-clojure-static'
 NeoBundle 'solars/github-vim'
 NeoBundle 'mxw/vim-jsx'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'kylef/apiblueprint.vim'
-NeoBundle 'bitc/vim-hdevtools'
-NeoBundle 'justinmk/vim-sneak'
 NeoBundle 'ludovicchabant/vim-gutentags'
-NeoBundle 'elixir-lang/vim-elixir'
-NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'sheerun/vim-polyglot' " syntax support for major languages
+
+" Haskell
+NeoBundle 'bitc/vim-hdevtools'
+NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'eagletmt/neco-ghc'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
@@ -125,6 +110,7 @@ set wildignore+=source_maps                      " Compiled coffeescript/etc
 set wildignore+=bower_components                 " Bower components
 set wildignore+=public                           " Public dir
 set wildignore+=node_modules
+set wildignore+=.cabal-sandbox
 
 set foldlevel=100
 set foldmethod=indent
@@ -345,8 +331,10 @@ map <leader>c :call RunTestFile()<cr>
 map <leader>x :bd! running-tests<cr>
 
 " Haskell
-au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
-au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+map <silent> tw :GhcModTypeInsert<CR>
+map <silent> ts :GhcModSplitFunCase<CR>
+map <silent> tq :GhcModType<CR>
+map <silent> te :GhcModTypeClear<CR>
 
 " Highlight 121st column if text flows over it
 call matchadd('ColorColumn', '\%>120v.\+', 100)
