@@ -52,8 +52,6 @@ NeoBundle 'clones/vim-l9'
 NeoBundle 'ecomba/vim-ruby-refactoring'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'mtscout6/syntastic-local-eslint.vim'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'junegunn/gv.vim'
 NeoBundle 'tpope/vim-rails'
@@ -67,6 +65,11 @@ NeoBundle 'solars/github-vim'
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'ludovicchabant/vim-gutentags'
 NeoBundle 'sheerun/vim-polyglot' " syntax support for major languages
+
+" Neomake and related
+NeoBundle 'neomake/neomake' " Asynchronous linting and make framework for Neovim
+NeoBundle 'jaawerth/nrun.vim' " Helps to use local binaries
+NeoBundle 'sbdchd/neoformat'
 
 " Haskell
 NeoBundle 'bitc/vim-hdevtools'
@@ -87,7 +90,13 @@ filetype plugin indent on
 NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
-let g:syntastic_javascript_checkers = ['eslint']
+" Check / Format when writing a buffer (no delay).
+call neomake#configure#automake('w')
+let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " Disable sounds in mac
 set visualbell
