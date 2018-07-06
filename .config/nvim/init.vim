@@ -93,6 +93,7 @@ NeoBundleCheck
 " Check / Format when writing a buffer (no delay).
 call neomake#configure#automake('w')
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 augroup fmt
   autocmd!
   autocmd BufWritePre * undojoin | Neoformat
