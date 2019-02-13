@@ -95,10 +95,6 @@ NeoBundleCheck
 call neomake#configure#automake('w')
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
 let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
-augroup fmt
-  autocmd!
-  autocmd BufWritePre * undojoin | Neoformat
-augroup END
 
 " Disable sounds in mac
 set visualbell
