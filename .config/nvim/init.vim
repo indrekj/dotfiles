@@ -37,11 +37,11 @@ set writebackup
 "NeoBundle Scripts-----------------------------
 if has('vim_starting')
   " Required:
-  set runtimepath+=/home/indrek/.config/nvim/bundle/neobundle.vim/
+  set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
 endif
 
 " Required:
-call neobundle#begin(expand('/home/indrek/.config/nvim/bundle'))
+call neobundle#begin(expand('~/.config/nvim/bundle'))
 
 " Let NeoBundle manage NeoBundle
 " Required:
