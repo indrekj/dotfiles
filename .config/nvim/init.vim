@@ -21,6 +21,7 @@ set sidescrolloff=2   " keep 2 characters when scrolling
 set showmatch         " jumps to next bracket
 set history=1000
 set mouse=            " disable evil mouse
+set termguicolors
 "set number
 "set relativenumber
 syntax on
