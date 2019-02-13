@@ -3,7 +3,6 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 # Old Divvy bindings
-bind 1:shift;cmd grid padding:4 0:6,8
 bind 1:ctrl;cmd move screenOriginX;screenOriginY screenSizeX;screenSizeY
 bind 2:ctrl;cmd move screenOriginX;screenOriginY screenSizeX;7*screenSizeY/8
 
