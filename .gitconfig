@@ -1,6 +1,7 @@
 [user]
   name = Indrek Juhkam
   email = indrek@urgas.eu
+  signingkey = F8AE4F16C95B43C9
 [alias]
   co = checkout
   st = status
@@ -43,3 +44,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	gpgsign = true
