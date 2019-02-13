@@ -159,7 +159,7 @@ map \ <Plug>SneakNext
 let g:sneak#s_next = 1
 
 let mapleader = ";"
-let &winwidth = 90
+let &winwidth = 100
 
 let ruby_operators = 1 " hightlight ruby operators
 let g:rubycomplete_buffer_loading = 1
