@@ -69,9 +69,6 @@ Plug 'bitc/vim-hdevtools'
 Plug 'eagletmt/ghcmod-vim'
 Plug 'eagletmt/neco-ghc'
 
-" You can specify revision/branch/tag.
-Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
-
 " Required:
 call plug#end()
 
