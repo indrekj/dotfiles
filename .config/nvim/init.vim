@@ -34,62 +34,51 @@ set backupskip=/tmp/*
 set directory=/tmp
 set writebackup
 
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  " Required:
-  set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
-endif
+"Plug Scripts-----------------------------
 
 " Required:
-call neobundle#begin(expand('~/.config/nvim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call plug#begin('~/.local/share/nvim/plugged')
 
 " Add or remove your Bundles here:
-NeoBundle 'flazz/vim-colorschemes'
-NeoBundle 'clones/vim-l9'
-NeoBundle 'ecomba/vim-ruby-refactoring'
-NeoBundle 'godlygeek/tabular'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'junegunn/gv.vim'
-NeoBundle 'tpope/vim-rails'
-NeoBundle 'tpope/vim-rake'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-bundler'
-NeoBundle 'Valloric/YouCompleteMe'
-NeoBundle 'vim-scripts/AutoTag'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'solars/github-vim'
-NeoBundle 'mxw/vim-jsx'
-NeoBundle 'ludovicchabant/vim-gutentags'
-NeoBundle 'sheerun/vim-polyglot' " syntax support for major languages
+Plug 'flazz/vim-colorschemes'
+Plug 'clones/vim-l9'
+Plug 'ecomba/vim-ruby-refactoring'
+Plug 'godlygeek/tabular'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-bundler'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/AutoTag'
+Plug 'rking/ag.vim'
+Plug 'solars/github-vim'
+Plug 'mxw/vim-jsx'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'sheerun/vim-polyglot' " syntax support for major languages
 
 " Neomake and related
-NeoBundle 'neomake/neomake' " Asynchronous linting and make framework for Neovim
-NeoBundle 'jaawerth/nrun.vim' " Helps to use local binaries
-NeoBundle 'sbdchd/neoformat'
+Plug 'neomake/neomake' " Asynchronous linting and make framework for Neovim
+Plug 'jaawerth/nrun.vim' " Helps to use local binaries
+Plug 'sbdchd/neoformat'
 
 " Haskell
-NeoBundle 'bitc/vim-hdevtools'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'eagletmt/neco-ghc'
+Plug 'bitc/vim-hdevtools'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'eagletmt/neco-ghc'
 
 " You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+Plug 'Shougo/vimshell', { 'rev' : '3787e5' }
 
 " Required:
-call neobundle#end()
+call plug#end()
 
 " Required:
 filetype plugin indent on
 
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
+"End Plug Scripts-------------------------
 
 " Check / Format when writing a buffer (no delay).
 call neomake#configure#automake('w')
