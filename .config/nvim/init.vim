@@ -56,7 +56,6 @@ Plug 'vim-scripts/AutoTag'
 Plug 'rking/ag.vim'
 Plug 'solars/github-vim'
 Plug 'mxw/vim-jsx'
-Plug 'ludovicchabant/vim-gutentags'
 Plug 'sheerun/vim-polyglot' " syntax support for major languages
 
 " Neomake and related
@@ -332,18 +331,6 @@ map <silent> te :GhcModTypeClear<CR>
 " Highlight 121st column if text flows over it
 call matchadd('ColorColumn', '\%>120v.\+', 100)
 
-" Gutentags
-if exists("*gutentags#statusline")
-  set statusline+=%{gutentags#statusline()}
-endif
-let g:gutentags_project_root = ['package.json', 'Brocfile.js', 'Capfile', 'Rakefile', 'bower.json', '.ruby-version', 'Gemfile']
-let g:gutentags_cache_dir = '~/.gutentags'
-let g:gutentags_project_info = []
-call add(g:gutentags_project_info, {'type': 'ruby', 'file': 'Gemfile'})
-call add(g:gutentags_project_info, {'type': 'javascript', 'file': 'package.json'})
-" Use -R because es-ctags doesn't support --options used by Gutentags to
-" specify the recursiveness
-let g:gutentags_ctags_executable_javascript = 'es-ctags -R'
 
 " disabled because 'my' expects gui* commands, but neovim disabled gui_running
 " so it expects cterm* commands. Sad :(
