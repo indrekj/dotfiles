@@ -39,19 +39,26 @@ set writebackup
 " Required:
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Add or remove your Bundles here:
-Plug 'flazz/vim-colorschemes'
-Plug 'clones/vim-l9'
+" Misc plugins
+Plug 'flazz/vim-colorschemes' " colorschemes
+Plug 'tpope/vim-fugitive' " git wrapper
+Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot' " syntax support for major languages
+
+" Github integration (Basically only using `vmap gho`)
+Plug 'solars/github-vim'
+
+" Autocomplete and search
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tpope/vim-fugitive'
+Plug 'rking/ag.vim'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+
+" Javascript
+Plug 'mxw/vim-jsx'
+
+" Ruby
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
-Plug 'tpope/vim-surround'
-Plug 'rking/ag.vim'
-Plug 'solars/github-vim'
-Plug 'mxw/vim-jsx'
-Plug 'sheerun/vim-polyglot' " syntax support for major languages
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Neomake and related
 Plug 'neomake/neomake' " Asynchronous linting and make framework for Neovim
