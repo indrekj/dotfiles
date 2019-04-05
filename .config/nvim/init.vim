@@ -61,11 +61,6 @@ Plug 'neomake/neomake' " Asynchronous linting and make framework for Neovim
 Plug 'jaawerth/nrun.vim' " Helps to use local binaries
 Plug 'sbdchd/neoformat'
 
-" Haskell
-Plug 'bitc/vim-hdevtools'
-Plug 'eagletmt/ghcmod-vim'
-Plug 'eagletmt/neco-ghc'
-
 " Required:
 call plug#end()
 
