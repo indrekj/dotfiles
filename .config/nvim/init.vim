@@ -42,7 +42,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 " Add or remove your Bundles here:
 Plug 'flazz/vim-colorschemes'
 Plug 'clones/vim-l9'
-Plug 'godlygeek/tabular'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
