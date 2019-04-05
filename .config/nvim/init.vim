@@ -103,6 +103,7 @@ set wildignore+=bower_components                 " Bower components
 set wildignore+=public                           " Public dir
 set wildignore+=node_modules
 set wildignore+=.cabal-sandbox
+set wildignore+=_build,deps
 
 set foldlevel=100
 set foldmethod=indent
