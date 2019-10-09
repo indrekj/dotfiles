@@ -54,7 +54,7 @@ Plug 'rking/ag.vim'
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 
 " Javascript
-Plug 'mxw/vim-jsx'
+Plug 'neoclide/vim-jsx-improve'
 
 " Ruby
 Plug 'tpope/vim-rails'
