@@ -130,6 +130,10 @@ inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
 vnoremap <silent> <A-j> :m'>+<CR>gv=gv
 vnoremap <silent> <A-k> :m-2<CR>gv=gv
 
+" Map Ctrl+P, Ctrl+N to prev-next search result
+nnoremap <silent> <C-p> :cp<CR>
+nnoremap <silent> <C-n> :cn<CR>
+
 " ; key repeats last search. bind it to \ and ;; so we can use ; as a leader key
 nnoremap ;; ;
 nnoremap \ ;
