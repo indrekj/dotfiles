@@ -196,16 +196,6 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 
-" move between tabs (alt-h, alt-l)
-nmap è :tabp<CR>
-nmap ì :tabn<CR>
-nmap <M-h> :tabp<CR>
-nmap <M-l> :tabn<CR>
-tnoremap è <C-\><C-n>:tabp<CR>
-tnoremap ì <C-\><C-n>:tabn<CR>
-tnoremap <M-h> <C-\><C-n>:tabp<CR>
-tnoremap <M-l> <C-\><C-n>:tabn<CR>
-
 " terminal shortcuts
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-w>_ <C-\><C-n><C-w>_
