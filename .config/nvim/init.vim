@@ -121,15 +121,6 @@ set statusline+=0x%-8B          " character value
 set statusline+=%-14(%l,%c%V%)  " line, character
 set statusline+=%<%P            " file position
 
-" Move line(s) of text using Alt+j/k
-"set termencoding=latin1
-nnoremap <silent> <A-j> :m+<CR>==
-nnoremap <silent> <A-k> :m-2<CR>==
-inoremap <silent> <A-j> <Esc>:m+<CR>==gi
-inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
-vnoremap <silent> <A-j> :m'>+<CR>gv=gv
-vnoremap <silent> <A-k> :m-2<CR>gv=gv
-
 " Map Ctrl+P, Ctrl+N to prev-next search result
 nnoremap <silent> <C-p> :cp<CR>
 nnoremap <silent> <C-n> :cn<CR>
