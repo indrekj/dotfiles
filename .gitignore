@@ -4,3 +4,5 @@
 !.vim/bundle/vundle
 .config/nvim/.init.vim-rplugin~
 .config/nvim/bundle
+.DS_Store
+.DS_Store?
