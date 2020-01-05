@@ -159,18 +159,10 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " Don't make a # force column zero.
 inoremap # X<BS>#
 
-" FILE TYPES / SYNTAX
+" File types / syntax
 source $VIMRUNTIME/filetype.vim
-
-autocmd BufEnter *.html set filetype=xhtml
 autocmd BufEnter */nginx/*.conf* set filetype=nginx
-autocmd BufEnter *.html.erb source $HOME/.vim/syntax/html5.vim
-autocmd BufEnter *.es6 set filetype=javascript
-autocmd BufEnter Procfile set filetype=ruby
-autocmd BufEnter *.prawn set filetype=ruby
-autocmd BufEnter Guardfile set filetype=ruby
-autocmd BufEnter Gemfile set filetype=ruby
-autocmd BufEnter *.slim set filetype=slim
+autocmd BufEnter */kubernetes/*.template set filetype=yaml
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
