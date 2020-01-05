@@ -186,13 +186,6 @@ map <leader>p "+p
 noremap k gk
 noremap j gj
 
-" Fix cursor position when using page up and down
-map <PageUp> <C-U>
-map <PageDown> <C-D>
-imap <PageUp> <C-O><C-U>
-imap <PageDown> <C-O><C-D>
-set nostartofline
-
 nmap <silent> <leader>z :set spell!<cr>
 
 " => to :, " to ' and add spaces
