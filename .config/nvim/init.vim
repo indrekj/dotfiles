@@ -186,14 +186,6 @@ map <leader>p "+p
 noremap k gk
 noremap j gj
 
-" Move line(s) of text using Alt+j/k
-nnoremap <silent> <A-j> :m+<CR>==
-nnoremap <silent> <A-k> :m-2<CR>==
-inoremap <silent> <A-j> <Esc>:m+<CR>==gi
-inoremap <silent> <A-k> <Esc>:m-2<CR>==gi
-vnoremap <silent> <A-j> :m'>+<CR>gv=gv
-vnoremap <silent> <A-k> :m-2<CR>gv=gv
-
 " move between several split windows
 nnoremap <C-h> <C-W>h
 nnoremap <C-j> <C-W>j
