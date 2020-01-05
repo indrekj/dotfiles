@@ -51,7 +51,7 @@ Plug 'solars/github-vim'
 " Autocomplete and search
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Javascript
 Plug 'neoclide/vim-jsx-improve'
