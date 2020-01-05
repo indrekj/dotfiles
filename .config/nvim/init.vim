@@ -169,7 +169,7 @@ autocmd FileType text setlocal textwidth=78
 
 " CtrlP
 let g:ctrlp_map = "<leader>t"
-let g:ctrlp_root_markers = ['start', 'package.json']
+let g:ctrlp_root_markers = ['start', 'package.json', 'Gemfile']
 
 " Edit another file in the same directory as the current file
 " uses expression to extract path from current file's path
