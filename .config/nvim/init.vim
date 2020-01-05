@@ -186,23 +186,6 @@ map <leader>p "+p
 noremap k gk
 noremap j gj
 
-" => to :, " to ' and add spaces
-function! PrettyHash()
-  :Bashrockets
-  :silent! s/\"\([a-zA-Z_]*\)\"\:/\1\:\ /g
-  :silent! s/\(\w\|\}\|\'\|\"\)\:\(\w\|{\|\'\|\"\)/\1\: \2/g
-  :silent! s/\"/\'/g
-  :silent! s/\(\w\|\}\|\'\|\"\),\(\w\)/\1, \2/g
-endfunction
-vnoremap <silent> <leader>h :call PrettyHash()<cr>
-
-function! SplitHash()
-  :silent! s/^\(\s\+\){\(.*\)/\1{\r\1\ \ \2/g
-  :silent! s/\(\w\|\}\|\'\|\"\|)\), \(\w\)/\1,\r\2/g
-  :silent! s/\}$/\r\}/g
-endfunction
-vnoremap <silent> <leader>j :call SplitHash()<cr>
-
 " Move line(s) of text using Alt+j/k
 nnoremap <silent> <A-j> :m+<CR>==
 nnoremap <silent> <A-k> :m-2<CR>==
