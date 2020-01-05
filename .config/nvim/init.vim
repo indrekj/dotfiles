@@ -65,6 +65,9 @@ Plug 'neomake/neomake' " Asynchronous linting and make framework for Neovim
 Plug 'jaawerth/nrun.vim' " Helps to use local binaries
 Plug 'sbdchd/neoformat'
 
+" Test shortcuts for rspec and others
+Plug 'janko-m/vim-test'
+
 " Required:
 call plug#end()
 
@@ -222,42 +225,11 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 nnoremap <silent> <F5> :call <SID>StripTrailingWhitespaces()<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Running tests
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Write the file and run tests for the given filename
-function! RunTests(filename)
-  :w
-  :tabnew
-  :call termopen([&sh, &shcf, "bundle exec rspec " . a:filename], {'name':'running-tests'})
-  :startinsert
-endfunction
-
-" Set the spec file that tests will be run for.
-function! SetTestFile()
-  let t:grb_test_file=@%
-endfunction
-
-function! RunTestFile(...)
-  if a:0
-    let command_suffix = a:1
-  else
-    let command_suffix = ""
-  endif
-
-  " Run the tests for the previously-marked file.
-  let in_test_file = match(expand("%"), '\(.feature\|_spec.rb\)$') != -1
-  if in_test_file
-    call SetTestFile()
-  elseif !exists("t:grb_test_file")
-    return
-  end
-  call RunTests(t:grb_test_file . command_suffix)
-endfunction
-
-map <leader>c :call RunTestFile()<cr>
-map <leader>x :bd! running-tests<cr>
+" vim-test configuration
+let test#strategy = "neovim" " Runs test commands with :terminal in a split window
+let test#neovim#term_position = "tab" " Create new tab instead of split window
+nnoremap <silent> <Leader>c :TestNearest<CR>
+nnoremap <silent> <Leader>C :TestSuite<CR>
 
 " Highlight 121st column if text flows over it
 call matchadd('ColorColumn', '\%>120v.\+', 100)
