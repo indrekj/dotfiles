@@ -186,8 +186,6 @@ map <leader>p "+p
 noremap k gk
 noremap j gj
 
-nmap <silent> <leader>z :set spell!<cr>
-
 " => to :, " to ' and add spaces
 function! PrettyHash()
   :Bashrockets
