@@ -259,12 +259,6 @@ endfunction
 map <leader>c :call RunTestFile()<cr>
 map <leader>x :bd! running-tests<cr>
 
-" Haskell
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
-
 " Highlight 121st column if text flows over it
 call matchadd('ColorColumn', '\%>120v.\+', 100)
 
