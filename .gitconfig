@@ -26,7 +26,7 @@
 [core]
 	editor = nvim
 	autocrlf = input
-	excludesfile = /Users/indrek/.gitignore
+	excludesfile = ~/.gitignore
 [diff]
 	wordRegex = (, )?[^[:space:],().]+[push]
 	default = current
