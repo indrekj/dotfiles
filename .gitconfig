@@ -1,43 +1,43 @@
 [user]
-  name = Indrek Juhkam
-  email = indrek@urgas.eu
-  signingkey = F8AE4F16C95B43C9
+	name = Indrek Juhkam
+	email = indrek@urgas.eu
+	signingkey = F8AE4F16C95B43C9
 [alias]
-  co = checkout
-  st = status
-  df = diff --stat -p --no-prefix
-  view = log --stat -b -p --no-prefix
-  tree = log --graph --oneline --decorate
-  fix = commit --amend --no-edit
-  sorted-branches = for-each-ref --sort=-committerdate refs/heads/
+	co = checkout
+	st = status
+	df = diff --stat -p --no-prefix
+	view = log --stat -b -p --no-prefix
+	tree = log --graph --oneline --decorate
+	fix = commit --amend --no-edit
+	sorted-branches = for-each-ref --sort=-committerdate refs/heads/
 [format]
 [apply]
-  whitespace = nowarn
+	whitespace = nowarn
 [branch]
-  autosetuprebase = remote
+	autosetuprebase = remote
 [rebase]
-  autoStash = true
+	autoStash = true
 [color]
-  status = auto
-  diff = auto
-  branch = auto
-  interactive = auto
-  grep = auto
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
+	grep = auto
 [core]
-  editor = nvim
+	editor = nvim
 	autocrlf = input
 	excludesfile = /Users/indrek/.gitignore
 [diff]
-  wordRegex = (, )?[^[:space:],().]+[push]
-  default = current
-  algorithm = patience
+	wordRegex = (, )?[^[:space:],().]+[push]
+	default = current
+	algorithm = patience
 [pager]
-  status = false
+	status = false
 [rerere]
-  autoupdate = true
-  enabled = true
+	autoupdate = true
+	enabled = true
 [push]
-  default = current
+	default = current
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
