@@ -1,0 +1,7 @@
+xkb_keymap {
+	xkb_keycodes  { include "evdev+aliases(qwerty)"	};
+	xkb_types     { include "complete+mac_term(addmac_levels)"	};
+	xkb_compat    { include "complete"	};
+	xkb_symbols   { include "pc+us+ee:2+us:3+inet(evdev)+altwin(swap_alt_win)+mac_term(mac_win)+mac_term(mac_global)+mac_gui(caps_escape)"	};
+	xkb_geometry  { include "pc(pc105)"	};
+};

@@ -1,0 +1,87 @@
+default partial xkb_symbols "mac_apple" {
+    key <LWIN> {
+      repeat= no,
+      type= "ONE_LEVEL",
+      symbols[Group1]= [ Hyper_L ],
+      actions[group1]=[ SetMods(modifiers=Shift+Control) ]
+    };
+    key <RWIN> {
+      repeat= no,
+      type= "ONE_LEVEL",
+      symbols[Group1]= [ Hyper_R ],
+      actions[group1]=[ SetMods(modifiers=Shift+Control) ]
+    };
+};
+partial xkb_symbols "mac_win" {
+    key <LALT> {
+      repeat= no,
+      type= "ONE_LEVEL",
+      symbols[Group1]= [ Hyper_L ],
+      actions[group1]=[ SetMods(modifiers=Shift+Control) ]
+    };
+    key <RALT> {
+      repeat= no,
+      type= "ONE_LEVEL",
+      symbols[Group1]= [ Hyper_R ],
+      actions[group1]=[ SetMods(modifiers=Shift+Control) ]
+    };
+};
+partial xkb_symbols "mac_global" {
+    // Page Up
+    replace key <UP> {
+        type[Group1]= "ONE_LEVEL_CTRL",
+        symbols[Group1]= [
+        Up,
+        Up,
+        NoSymbol ],
+        actions[Group1]= [
+            NoAction(),
+            NoAction(),
+            RedirectKey(key=<PGUP>,clearmods=Shift+Control)
+        ]
+    };
+    // Page Down
+    replace key <DOWN> {
+        type[Group1]= "ONE_LEVEL_CTRL",
+        symbols[Group1]= [
+            Down,
+            Down,
+            NoSymbol
+        ],
+        actions[Group1]= [
+            NoAction(),
+            NoAction(),
+            RedirectKey(key=<PGDN>,clearmods=Shift+Control)
+        ]
+    };
+    // Full Print Screen
+    // Standard Ubuntu
+    replace key <AE03> {
+        type[Group1]= "ONE_LEVEL_CTRL",
+        symbols[Group1]= [
+            3,
+            numbersign,
+            NoSymbol
+        ],
+        actions[Group1]= [
+            NoAction(),
+            NoAction(),
+            RedirectKey(key=<PRSC>,clearmods=Shift+Control)
+        ]
+    };
+    // Region Print Screen
+    // Standard Ubuntu
+    replace key <AE04> {
+        type[Group1]= "ONE_LEVEL_CTRL",
+        symbols[Group1]= [
+            4,
+            dollar,
+            NoSymbol
+        ],
+        actions[Group1]= [
+            NoAction(),
+            NoAction(),
+            RedirectKey(key=<PRSC>,clearmods=Control)
+        ]
+    };
+};
