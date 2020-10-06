@@ -66,7 +66,7 @@ Plug 'jaawerth/nrun.vim' " Helps to use local binaries
 Plug 'sbdchd/neoformat'
 
 " Test shortcuts for rspec and others
-Plug 'janko-m/vim-test'
+Plug 'vim-test/vim-test'
 
 " Required:
 call plug#end()
