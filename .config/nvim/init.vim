@@ -22,6 +22,7 @@ set showmatch         " jumps to next bracket
 set history=1000
 set mouse=            " disable evil mouse
 set termguicolors
+set updatetime=300    " Shorter delay (default is 4000ms) creates more swp updates but better coc experience
 "set number
 "set relativenumber
 syntax on
@@ -259,6 +260,8 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gsd :sp<cr><Plug>(coc-definition)
+nmap <silent> gvd :vsp<cr><Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
