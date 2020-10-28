@@ -362,6 +362,9 @@ define_keymap(re.compile(termStr, re.IGNORECASE),{
     K("RC-Left"): K("C-Shift-Left"),
     K("RC-Right"): K("C-Shift-Right"),
 
+    # Allow changing keyboard using Ctrl-Space in terminal
+    K("LC-Space"): K("Super-Space"),
+
     # Ctrl Tab - In App Tab Switching
     K("LC-Tab") : K("LC-PAGE_DOWN"),
     K("LC-Shift-Tab") : K("LC-PAGE_UP"),
