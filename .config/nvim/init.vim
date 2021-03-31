@@ -167,6 +167,7 @@ inoremap # X<BS>#
 source $VIMRUNTIME/filetype.vim
 autocmd BufEnter */nginx/*.conf* set filetype=nginx
 autocmd BufEnter */kubernetes/*.template set filetype=yaml
+autocmd BufEnter *.yaml.gotmpl set filetype=yaml
 
 " For all text files set 'textwidth' to 78 characters.
 autocmd FileType text setlocal textwidth=78
