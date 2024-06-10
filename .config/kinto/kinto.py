@@ -538,6 +538,9 @@ define_keymap(re.compile(termStr, re.IGNORECASE),{
     ### Tab navigation
     K("RC-Left"):         K("C-Shift-Page_Down"),         # Tab nav: Go to prior tab (Left)
     K("RC-Right"):        K("C-Shift-Page_Up"),       # Tab nav: Go to next tab (Right)
+    # Switch workspaces
+    K("LC-RC-Left"): K("RC-LSuper-Left"),
+    K("LC-RC-Right"): K("RC-LSuper-Right"),
 },"Special overrides for terminals")
 
 # None referenced here originally
