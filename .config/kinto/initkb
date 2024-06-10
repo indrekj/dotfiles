@@ -2,7 +2,7 @@ kbtype = ask
 rightmod = true
 vsc2st3 = false
 capslock = default
-systray = true
+systray = false
 autostart = true
 
 #
