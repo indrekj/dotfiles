@@ -846,4 +846,6 @@ define_keymap(re.compile(termStr, re.IGNORECASE),{
     K("RC-Dot"): K("LC-c"),
     K("RC-SLASH"): K("C-Shift-SLASH"),
     K("RC-KPASTERISK"): K("C-Shift-KPASTERISK"),
+    # Allow changing keyboard using Ctrl-Space in terminal
+    K("LC-Space"): K("Super-Space"),
 }, "terminals")
