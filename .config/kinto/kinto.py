@@ -536,8 +536,8 @@ define_keymap(re.compile(termStr, re.IGNORECASE),{
     K("RC-Backspace"):          K("C-u"),               # Wordwise delete line left of cursor in terminals
     K("RC-Delete"):             K("C-k"),               # Wordwise delete line right of cursor in terminals
     ### Tab navigation
-    K("RC-Shift-Left"):         K("C-Page_Up"),         # Tab nav: Go to prior tab (Left)
-    K("RC-Shift-Right"):        K("C-Page_Down"),       # Tab nav: Go to next tab (Right)
+    K("RC-Left"):         K("C-Shift-Page_Down"),         # Tab nav: Go to prior tab (Left)
+    K("RC-Right"):        K("C-Shift-Page_Up"),       # Tab nav: Go to next tab (Right)
 },"Special overrides for terminals")
 
 # None referenced here originally
