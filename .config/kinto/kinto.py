@@ -503,7 +503,7 @@ define_keymap(re.compile("ulauncher", re.IGNORECASE),{
 
 # Note: terminals extends to remotes as well
 define_keymap(lambda wm_class: wm_class.casefold() not in terminals,{
-    K("RC-Dot"): K("Esc"),                        # Mimic macOS Cmd+dot = Escape key (not in terminals)
+    # K("RC-Dot"): K("Esc"),                        # Mimic macOS Cmd+dot = Escape key (not in terminals)
 })
 
 # None referenced here originally
