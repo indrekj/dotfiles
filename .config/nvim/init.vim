@@ -54,12 +54,18 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Erlang
+Plug 'vim-erlang/vim-erlang-runtime'
+
 " Javascript
 Plug 'neoclide/vim-jsx-improve'
 
 " Ruby
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
+
+" GoLang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Neomake and related
 Plug 'neomake/neomake' " Asynchronous linting and make framework for Neovim
@@ -68,6 +74,9 @@ Plug 'sbdchd/neoformat'
 
 " Test shortcuts for rspec and others
 Plug 'vim-test/vim-test'
+
+" Solidity
+Plug 'thesis/vim-solidity'
 
 " Required:
 call plug#end()
@@ -239,33 +248,7 @@ call matchadd('ColorColumn', '\%>120v.\+', 100)
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gsd :sp<cr><Plug>(coc-definition)
-nmap <silent> gvd :vsp<cr><Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+source ~/.config/nvim/init-coc.vim
 
 " disabled because 'my' expects gui* commands, but neovim disabled gui_running
 " so it expects cterm* commands. Sad :(

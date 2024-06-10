@@ -7,6 +7,7 @@
 	st = status
 	df = diff --stat -p --no-prefix
 	view = log --stat -b -p --no-prefix
+	view-reflow = reflog --stat -b -p --no-prefix
 	tree = log --graph --oneline --decorate
 	fix = commit --amend --no-edit
 	sorted-branches = for-each-ref --sort=-committerdate refs/heads/
