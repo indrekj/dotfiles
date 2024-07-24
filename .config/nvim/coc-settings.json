@@ -1,6 +1,5 @@
 {
-	"typescript.suggestionActions.enabled": false,
-	"javascript.suggestionActions.enabled": false,
 	"suggest.noselect": true,
-	"elixirLS.projectDir": "elixir"
+	"elixirLS.projectDir": "elixir",
+	"eslint.packageManager": "pnpm"
 }

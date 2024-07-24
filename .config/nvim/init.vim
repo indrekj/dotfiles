@@ -88,7 +88,7 @@ filetype plugin indent on
 
 " Check / Format when writing a buffer (no delay).
 call neomake#configure#automake('w')
-let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let g:neomake_javascript_enabled_makers = [] " We use Coc
 let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 
 " Disable sounds in mac
