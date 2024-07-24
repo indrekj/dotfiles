@@ -173,7 +173,7 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 inoremap # X<BS>#
 
 " File types / syntax
-source $VIMRUNTIME/filetype.vim
+source $VIMRUNTIME/filetype.lua
 autocmd BufEnter */nginx/*.conf* set filetype=nginx
 autocmd BufEnter */kubernetes/*.template set filetype=yaml
 autocmd BufEnter *.yaml.gotmpl set filetype=yaml
@@ -250,8 +250,5 @@ set shortmess+=c
 
 source ~/.config/nvim/init-coc.vim
 
-" disabled because 'my' expects gui* commands, but neovim disabled gui_running
-" so it expects cterm* commands. Sad :(
-"colorscheme my
-set background=dark
 colorscheme vividchalk
+highlight Normal guibg=Black ctermbg=Black
