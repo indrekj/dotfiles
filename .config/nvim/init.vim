@@ -195,6 +195,8 @@ map <leader>v :vnew <C-R>=expand("%:p:h") . '/'<CR><C-M>
 map <leader>y "+y
 map <leader>p "+p
 
+map Y 0y$$
+
 " move over screen lines not buffer lines
 "  helps with long wrapped lines (normal mode only)
 noremap k gk
