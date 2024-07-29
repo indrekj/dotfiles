@@ -254,3 +254,4 @@ source ~/.config/nvim/init-coc.vim
 
 colorscheme vividchalk
 highlight Normal guibg=Black ctermbg=Black
+highlight SignColumn guibg=#222222
