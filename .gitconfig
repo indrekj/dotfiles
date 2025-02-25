@@ -16,8 +16,11 @@
 	whitespace = nowarn
 [branch]
 	autosetuprebase = remote
+	sort = -committerdate
 [rebase]
 	autoStash = true
+	autoSquash = true
+	updateRefs = true
 [color]
 	status = auto
 	diff = auto
@@ -31,17 +34,33 @@
 [diff]
 	wordRegex = (, )?[^[:space:],().]+[push]
 	default = current
-	algorithm = patience
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [pager]
 	status = false
 [rerere]
 	autoupdate = true
 	enabled = true
 [push]
-	default = current
+	default = simple
+	autoSetupRemote = true
+	followTags = true
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
 [commit]
-	gpgsign = true
+	verbose = true
+	# gpgsign = true
+[column]
+	ui = auto
+[tag]
+	sort = version:refname
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[help]
+	autocorrect = prompt
