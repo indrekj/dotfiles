@@ -22,7 +22,6 @@ set showmatch         " jumps to next bracket
 set history=1000
 set mouse=            " disable evil mouse
 set termguicolors
-set updatetime=300    " Shorter delay (default is 4000ms) creates more swp updates but better coc experience
 "set number
 "set relativenumber
 syntax on
@@ -52,7 +51,6 @@ Plug 'solars/github-vim'
 " Autocomplete and search
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'rking/ag.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Erlang
 Plug 'vim-erlang/vim-erlang-runtime'
@@ -77,6 +75,16 @@ Plug 'vim-test/vim-test'
 
 " Solidity
 Plug 'thesis/vim-solidity'
+
+" Community managed lsp configs
+Plug 'neovim/nvim-lspconfig'
+
+" Autocomplete
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 
 " Required:
 call plug#end()
@@ -119,7 +127,6 @@ set foldlevel=100
 set foldmethod=indent
 set foldlevelstart=99
 set smartcase         " case sensitive
-set pastetoggle=<F11>
 set winminheight=0    " minimal window height
 set hidden            " less warning when dealing with buffers
 
@@ -249,8 +256,6 @@ call matchadd('ColorColumn', '\%>120v.\+', 100)
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
-
-source ~/.config/nvim/init-coc.vim
 
 colorscheme vividchalk
 highlight Normal guibg=Black ctermbg=Black
