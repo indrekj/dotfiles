@@ -42,6 +42,16 @@ cmp.setup.cmdline({ '/', '?' }, {
   }
 })
 
+-- Set up command-line completion
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
+})
+
 -- Show diagnostic on hover
 vim.api.nvim_create_autocmd('CursorHold', {
   pattern = '*',
