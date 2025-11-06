@@ -24,13 +24,23 @@ cmp.setup({
         fallback()
       end
     end, { 'i', 's' }),
-    ['<CR>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete()
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' }
   }, {
-    { name = 'buffer' }
+    {
+      name = 'buffer',
+      option = {
+        get_bufnrs = function()
+          local bufs = {}
+          for _, win in ipairs(vim.api.nvim_list_wins()) do
+            bufs[vim.api.nvim_win_get_buf(win)] = true
+          end
+          return vim.tbl_keys(bufs)
+        end
+      }
+    }
   })
 })
 
@@ -71,4 +81,9 @@ vim.diagnostic.config({
 })
 
 -- Enable Elixir Expert language server
+vim.lsp.config('expert', {
+  cmd = { 'expert', '--stdio' },
+  root_markers = { 'mix.exs', '.git' },
+  filetypes = { 'elixir', 'eelixir', 'heex' },
+})
 vim.lsp.enable('expert')
