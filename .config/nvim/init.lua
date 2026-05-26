@@ -1,7 +1,6 @@
 -- Load my old vimscript settings
 vim.cmd('source ~/.config/nvim/old-init.vim')
 
--- Set up nvim-cmp.
 local cmp = require('cmp')
 
 cmp.setup({
@@ -87,3 +86,21 @@ vim.lsp.config('expert', {
   filetypes = { 'elixir', 'eelixir', 'heex' },
 })
 vim.lsp.enable('expert')
+
+-- Enable golang language server
+vim.lsp.enable('gopls')
+
+-- Enable Node.js (JavaScript/TypeScript) language server
+vim.lsp.config('ts_ls', {
+  cmd = { 'typescript-language-server', '--stdio' },
+  root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact'
+  },
+})
+vim.lsp.enable('ts_ls')
+
+require('claude-code').setup()

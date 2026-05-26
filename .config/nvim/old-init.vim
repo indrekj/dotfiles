@@ -65,11 +65,6 @@ Plug 'tpope/vim-rake'
 " GoLang
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
-" Neomake and related
-Plug 'neomake/neomake' " Asynchronous linting and make framework for Neovim
-Plug 'jaawerth/nrun.vim' " Helps to use local binaries
-Plug 'sbdchd/neoformat'
-
 " Test shortcuts for rspec and others
 Plug 'vim-test/vim-test'
 
@@ -86,6 +81,10 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
+" Claude Code
+Plug 'nvim-lua/plenary.nvim'
+Plug 'greggh/claude-code.nvim'
+
 " Required:
 call plug#end()
 
@@ -93,11 +92,6 @@ call plug#end()
 filetype plugin indent on
 
 "End Plug Scripts-------------------------
-
-" Check / Format when writing a buffer (no delay).
-call neomake#configure#automake('w')
-let g:neomake_javascript_enabled_makers = [] " We use Coc
-let g:neomake_ruby_enabled_makers = ['mri', 'rubocop']
 
 " Disable sounds in mac
 set visualbell
@@ -250,9 +244,6 @@ let test#strategy = "neovim" " Runs test commands with :terminal in a split wind
 let test#neovim#term_position = "tab" " Create new tab instead of split window
 nnoremap <silent> <Leader>c :TestNearest<CR>
 nnoremap <silent> <Leader>C :TestSuite<CR>
-
-" Highlight 121st column if text flows over it
-call matchadd('ColorColumn', '\%>120v.\+', 100)
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c

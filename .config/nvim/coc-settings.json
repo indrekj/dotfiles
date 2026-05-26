@@ -1,5 +1,0 @@
-{
-	"suggest.noselect": true,
-	"elixirLS.projectDir": "elixir",
-	"eslint.packageManager": "pnpm"
-}
