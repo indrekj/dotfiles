@@ -7,3 +7,5 @@
 .DS_Store
 .DS_Store?
 .expert
+
+**/.claude/settings.local.json
