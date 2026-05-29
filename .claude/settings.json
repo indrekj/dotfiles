@@ -1,0 +1,206 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Grep(**)",
+      "Glob(**)",
+      "Read(~/salemove/**)",
+      "Grep(~/salemove/**)",
+      "Glob(~/salemove/**)",
+
+      "Bash(git branch:*)",
+      "Bash(git diff:*)",
+      "Bash(git fetch:*)",
+      "Bash(git grep:*)",
+      "Bash(git log:*)",
+      "Bash(git remote:*)",
+      "Bash(git show:*)",
+      "Bash(git stash list:*)",
+      "Bash(git status:*)",
+
+      "Bash(ls:*)",
+      "Bash(cat:*)",
+      "Bash(pwd)",
+      "Bash(which:*)",
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(jq:*)",
+      "Bash(rg:*)",
+      "Bash(echo:*)",
+
+      "Bash(bundle exec rspec:*)",
+      "Bash(bundle exec rubocop:*)",
+      "Bash(bundle install)",
+      "Bash(bundle list:*)",
+
+      "Bash(eslint:*)",
+
+      "Bash(gh issue list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh repo view:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(gh search:*)",
+
+      "Bash(go build:*)",
+      "Bash(go test:*)",
+      "Bash(go vet:*)",
+
+      "Bash(helm template:*)",
+
+      "Bash(mix compile:*)",
+      "Bash(mix credo:*)",
+      "Bash(mix deps.compile:*)",
+      "Bash(mix deps.get)",
+      "Bash(mix deps.tree:*)",
+      "Bash(mix deps.unlock)",
+      "Bash(mix format:*)",
+      "Bash(mix hex.info:*)",
+      "Bash(mix lint:*)",
+      "Bash(mix test:*)",
+
+      "Bash(npm ci)",
+      "Bash(npm install)",
+      "Bash(npm list:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+
+      "Bash(npx tsc:*)",
+
+      "Bash(pnpm install)",
+      "Bash(pnpm i)",
+      "Bash(pnpm list:*)",
+      "Bash(pnpm run:*)",
+      "Bash(pnpm test:*)",
+
+      "Bash(prettier:*)",
+
+      "Bash(rubocop:*)",
+
+      "Bash(yarn)",
+      "Bash(yarn install)",
+      "Bash(yarn list:*)",
+      "Bash(yarn run:*)",
+      "Bash(yarn test:*)",
+
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:hexdocs.pm)",
+      "WebFetch(domain:hex.pm)",
+
+      "mcp__claude_ai_Atlassian__atlassianUserInfo",
+      "mcp__claude_ai_Atlassian__fetch",
+      "mcp__claude_ai_Atlassian__getAccessibleAtlassianResources",
+      "mcp__claude_ai_Atlassian__getConfluenceCommentChildren",
+      "mcp__claude_ai_Atlassian__getConfluencePage",
+      "mcp__claude_ai_Atlassian__getConfluencePageDescendants",
+      "mcp__claude_ai_Atlassian__getConfluencePageFooterComments",
+      "mcp__claude_ai_Atlassian__getConfluencePageInlineComments",
+      "mcp__claude_ai_Atlassian__getConfluenceSpaces",
+      "mcp__claude_ai_Atlassian__getIssueLinkTypes",
+      "mcp__claude_ai_Atlassian__getJiraIssue",
+      "mcp__claude_ai_Atlassian__getJiraIssueRemoteIssueLinks",
+      "mcp__claude_ai_Atlassian__getJiraIssueTypeMetaWithFields",
+      "mcp__claude_ai_Atlassian__getJiraProjectIssueTypesMetadata",
+      "mcp__claude_ai_Atlassian__getPagesInConfluenceSpace",
+      "mcp__claude_ai_Atlassian__getTransitionsForJiraIssue",
+      "mcp__claude_ai_Atlassian__getVisibleJiraProjects",
+      "mcp__claude_ai_Atlassian__lookupJiraAccountId",
+      "mcp__claude_ai_Atlassian__search",
+      "mcp__claude_ai_Atlassian__searchConfluenceUsingCql",
+      "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql",
+
+      "mcp__claude_ai_Slack__slack_read_canvas",
+      "mcp__claude_ai_Slack__slack_read_channel",
+      "mcp__claude_ai_Slack__slack_read_thread",
+      "mcp__claude_ai_Slack__slack_read_user_profile",
+      "mcp__claude_ai_Slack__slack_search_channels",
+      "mcp__claude_ai_Slack__slack_search_public",
+      "mcp__claude_ai_Slack__slack_search_public_and_private",
+      "mcp__claude_ai_Slack__slack_search_users",
+
+      "mcp__plugin_context7_context7"
+    ],
+    "deny": [
+      "Bash(find* -exec *)",
+      "Bash(find* -execdir *)",
+      "Bash(find* -ok *)",
+      "Bash(find* -okdir *)",
+      "Bash(find* -delete*)",
+      "Bash(find* -fprint*)",
+
+      "Read(.env)",
+      "Read(.env.*)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/id_rsa)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/credentials)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(rm:*)"
+    ]
+  },
+  "model": "opus[1m]",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "glia-commands@glia-plugins": true,
+    "integrations@glia-plugins": true,
+    "context7@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "api-v2-spec@glia-plugins": true,
+    "deep-research@glia-plugins": true,
+    "dynamodb-best-practices@glia-plugins": true,
+    "kafka@glia-plugins": true,
+    "quick-agents@glia-plugins": true
+  },
+  "extraKnownMarketplaces": {
+    "glia-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "salemove/claude-code-plugins"
+      },
+      "autoUpdate": true
+    },
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  },
+  "effortLevel": "xhigh",
+  "skipAutoPermissionPrompt": true,
+  "additionalDirectories": [
+    "~/salemove"
+  ],
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  }
+}
