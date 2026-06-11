@@ -81,10 +81,6 @@ Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 
-" Claude Code
-Plug 'nvim-lua/plenary.nvim'
-Plug 'greggh/claude-code.nvim'
-
 " Required:
 call plug#end()
 
