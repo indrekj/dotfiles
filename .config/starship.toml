@@ -1,0 +1,30 @@
+add_newline = false
+format = "$username@$hostname$git_branch$character"
+right_format = "$directory"
+
+[username]
+show_always = true
+format = "[$user]($style)"
+style_user = "white"
+style_root = "bold red"
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style) "
+style = "bold 35"
+
+[git_branch]
+format = "[\\[$branch\\]]($style) "
+style = "bold green"
+
+[character]
+# the decorative blue "~" the mine theme always printed
+success_symbol = "[~](bold 33)"
+error_symbol = "[~](bold red)"
+
+[directory]
+# match zsh %~ : full path, home as ~, no truncation
+format = "[$path]($style)"
+style = "white"
+truncation_length = 0
+truncate_to_repo = false
