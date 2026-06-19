@@ -134,6 +134,19 @@
     ]
   },
   "model": "opus[1m]",
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || true",
+            "async": true
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
@@ -170,18 +183,5 @@
   "skipAutoPermissionPrompt": true,
   "additionalDirectories": [
     "~/salemove"
-  ],
-  "hooks": {
-    "Stop": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || true",
-            "async": true
-          }
-        ]
-      }
-    ]
-  }
+  ]
 }
