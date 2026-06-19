@@ -7,7 +7,6 @@
       "Read(~/salemove/**)",
       "Grep(~/salemove/**)",
       "Glob(~/salemove/**)",
-
       "Bash(git branch:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
@@ -17,7 +16,6 @@
       "Bash(git show:*)",
       "Bash(git stash list:*)",
       "Bash(git status:*)",
-
       "Bash(ls:*)",
       "Bash(cat:*)",
       "Bash(pwd)",
@@ -30,14 +28,11 @@
       "Bash(jq:*)",
       "Bash(rg:*)",
       "Bash(echo:*)",
-
       "Bash(bundle exec rspec:*)",
       "Bash(bundle exec rubocop:*)",
       "Bash(bundle install)",
       "Bash(bundle list:*)",
-
       "Bash(eslint:*)",
-
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
       "Bash(gh pr checks:*)",
@@ -48,13 +43,10 @@
       "Bash(gh run list:*)",
       "Bash(gh run view:*)",
       "Bash(gh search:*)",
-
       "Bash(go build:*)",
       "Bash(go test:*)",
       "Bash(go vet:*)",
-
       "Bash(helm template:*)",
-
       "Bash(mix compile:*)",
       "Bash(mix credo:*)",
       "Bash(mix deps.compile:*)",
@@ -65,37 +57,29 @@
       "Bash(mix hex.info:*)",
       "Bash(mix lint:*)",
       "Bash(mix test:*)",
-
       "Bash(npm ci)",
       "Bash(npm install)",
       "Bash(npm list:*)",
       "Bash(npm run:*)",
       "Bash(npm test:*)",
-
       "Bash(npx tsc:*)",
-
       "Bash(pnpm install)",
       "Bash(pnpm i)",
       "Bash(pnpm list:*)",
       "Bash(pnpm run:*)",
       "Bash(pnpm test:*)",
-
       "Bash(prettier:*)",
-
       "Bash(rubocop:*)",
-
       "Bash(yarn)",
       "Bash(yarn install)",
       "Bash(yarn list:*)",
       "Bash(yarn run:*)",
       "Bash(yarn test:*)",
-
       "WebSearch",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:hexdocs.pm)",
       "WebFetch(domain:hex.pm)",
-
       "mcp__claude_ai_Atlassian__atlassianUserInfo",
       "mcp__claude_ai_Atlassian__fetch",
       "mcp__claude_ai_Atlassian__getAccessibleAtlassianResources",
@@ -117,7 +101,6 @@
       "mcp__claude_ai_Atlassian__search",
       "mcp__claude_ai_Atlassian__searchConfluenceUsingCql",
       "mcp__claude_ai_Atlassian__searchJiraIssuesUsingJql",
-
       "mcp__claude_ai_Slack__slack_read_canvas",
       "mcp__claude_ai_Slack__slack_read_channel",
       "mcp__claude_ai_Slack__slack_read_thread",
@@ -126,7 +109,6 @@
       "mcp__claude_ai_Slack__slack_search_public",
       "mcp__claude_ai_Slack__slack_search_public_and_private",
       "mcp__claude_ai_Slack__slack_search_users",
-
       "mcp__plugin_context7_context7"
     ],
     "deny": [
@@ -136,7 +118,6 @@
       "Bash(find* -okdir *)",
       "Bash(find* -delete*)",
       "Bash(find* -fprint*)",
-
       "Read(.env)",
       "Read(.env.*)",
       "Read(**/.env)",
