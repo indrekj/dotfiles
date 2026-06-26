@@ -71,6 +71,17 @@ unset _zcd
 
 zmodload zsh/complist
 
+# Colors: GNU ls (Linux) reads LS_COLORS + needs --color; BSD ls (macOS) uses
+# CLICOLOR + -G and has no dircolors. dircolors -b just prints the built-in map
+# (coreutils C binary, sub-ms) so no caching needed. Must precede list-colors below.
+if command -v dircolors > /dev/null; then
+  eval "$(dircolors -b)"
+  alias ls='ls --color=auto'
+else
+  export CLICOLOR=1
+  alias ls='ls -G'
+fi
+
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'   # case-insensitive
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
