@@ -93,6 +93,7 @@ bindkey '\e[1;9C' forward-word          # alt-right
 bindkey '\e[1;10D' beginning-of-line    # cmd-left
 bindkey '\e[1;10C' end-of-line          # cmd-right
 bindkey '^H' backward-kill-word         # ctrl-backspace
+bindkey '^[[Z' reverse-menu-complete    # shift-tab
 bindkey -M menuselect '^M' .accept-line # Return accepts selected match
 
 # History
