@@ -3,10 +3,8 @@
     "allow": [
       "Read(**)",
       "Grep(**)",
-      "Glob(**)",
       "Read(~/salemove/**)",
       "Grep(~/salemove/**)",
-      "Glob(~/salemove/**)",
       "Bash(git branch:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
@@ -152,34 +150,32 @@
     "command": "~/.claude/statusline.sh"
   },
   "enabledPlugins": {
-    "glia-commands@glia-plugins": true,
-    "integrations@glia-plugins": true,
     "context7@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "api-v2-spec@glia-plugins": true,
     "deep-research@glia-plugins": true,
-    "dynamodb-best-practices@glia-plugins": true,
-    "kafka@glia-plugins": true,
-    "quick-agents@glia-plugins": true
+    "glia-commands@glia-plugins": true,
+    "integrations@glia-plugins": true,
+    "quick-agents@glia-plugins": true,
+    "engineering-knowledge-base@glia-plugins": true
   },
   "extraKnownMarketplaces": {
-    "glia-plugins": {
-      "source": {
-        "source": "github",
-        "repo": "salemove/claude-code-plugins"
-      },
-      "autoUpdate": true
-    },
     "claude-plugins-official": {
       "source": {
         "source": "github",
         "repo": "anthropics/claude-plugins-official"
       }
+    },
+    "glia-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "salemove/claude-code-plugins"
+      }
     }
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "high",
   "skipAutoPermissionPrompt": true,
   "additionalDirectories": [
     "~/salemove"
