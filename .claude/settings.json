@@ -175,6 +175,7 @@
       }
     }
   },
+  "cleanupPeriodDays": 365,
   "effortLevel": "high",
   "skipAutoPermissionPrompt": true,
   "additionalDirectories": [
