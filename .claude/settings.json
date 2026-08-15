@@ -180,7 +180,9 @@
   "effortLevel": "high",
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
+  "theme": "auto",
   "additionalDirectories": [
     "~/salemove"
-  ]
+  ],
+  "tui": "default"
 }
