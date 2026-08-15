@@ -146,6 +146,9 @@ unset _starship_cache
 # Plugins (autosuggestions, then syntax-highlighting LAST)
 source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# Claude personal
+alias claude-personal='CLAUDE_CONFIG_DIR=~/.claude-personal command claude'
+
 # Machine-local / private config (may define more aliases)
 [ -e ~/.zshrc.private ] && source ~/.zshrc.private
 
