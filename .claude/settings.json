@@ -152,11 +152,11 @@
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": false,
     "gopls-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": false,
     "api-v2-spec@glia-plugins": true,
-    "deep-research@glia-plugins": true,
+    "deep-research@glia-plugins": false,
     "glia-commands@glia-plugins": true,
     "integrations@glia-plugins": true,
     "quick-agents@glia-plugins": true,
@@ -178,11 +178,11 @@
     }
   },
   "effortLevel": "high",
+  "tui": "default",
+  "theme": "auto",
   "remoteControlAtStartup": true,
   "skipAutoPermissionPrompt": true,
-  "theme": "auto",
   "additionalDirectories": [
     "~/salemove"
-  ],
-  "tui": "default"
+  ]
 }
