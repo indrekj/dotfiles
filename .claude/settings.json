@@ -132,7 +132,7 @@
       "Bash(rm:*)"
     ]
   },
-  "model": "opus[1m]",
+  "model": "claude-fable-5-1[1m]",
   "hooks": {
     "Stop": [
       {
@@ -184,5 +184,15 @@
   "skipAutoPermissionPrompt": true,
   "additionalDirectories": [
     "~/salemove"
-  ]
+  ],
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
+    }
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  }
 }
