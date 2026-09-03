@@ -90,6 +90,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 bindkey -e
 bindkey '\e[1;9D' backward-word         # alt-left
 bindkey '\e[1;9C' forward-word          # alt-right
+bindkey '\e[1;5D' backward-word         # ctrl-left
+bindkey '\e[1;5C' forward-word          # ctrl-right
 bindkey '\e[1;10D' beginning-of-line    # cmd-left
 bindkey '\e[1;10C' end-of-line          # cmd-right
 bindkey '^H' backward-kill-word         # ctrl-backspace
