@@ -1,10 +1,13 @@
 {
   "cleanupPeriodDays": 365,
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
   "permissions": {
     "defaultMode": "auto",
     "allow": [
-      "Read(**)",
-      "Grep(**)",
       "Bash(git branch:*)",
       "Bash(git diff:*)",
       "Bash(git fetch:*)",
@@ -14,18 +17,9 @@
       "Bash(git show:*)",
       "Bash(git stash list:*)",
       "Bash(git status:*)",
-      "Bash(ls:*)",
-      "Bash(cat:*)",
-      "Bash(pwd)",
-      "Bash(which:*)",
-      "Bash(find:*)",
       "Bash(tree:*)",
-      "Bash(head:*)",
-      "Bash(tail:*)",
-      "Bash(wc:*)",
       "Bash(jq:*)",
       "Bash(rg:*)",
-      "Bash(echo:*)",
       "Bash(gh issue list:*)",
       "Bash(gh issue view:*)",
       "Bash(gh pr checks:*)",
@@ -41,6 +35,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:hexdocs.pm)",
       "WebFetch(domain:hex.pm)",
+      "WebFetch(domain:code.claude.com)",
+      "WebFetch(domain:docs.claude.com)",
       "mcp__claude_ai_Atlassian__atlassianUserInfo",
       "mcp__claude_ai_Atlassian__fetch",
       "mcp__claude_ai_Atlassian__getAccessibleAtlassianResources",
@@ -79,19 +75,77 @@
       "Bash(find* -okdir *)",
       "Bash(find* -delete*)",
       "Bash(find* -fprint*)",
-      "Read(.env)",
-      "Read(.env.*)",
+      "Bash(find* -fls *)",
       "Read(**/.env)",
-      "Read(**/.env.*)",
+      "Read(**/.env.local)",
+      "Read(**/.env.development)",
+      "Read(**/.env.test)",
+      "Read(**/.env.staging)",
+      "Read(**/.env.production)",
+      "Read(**/.env.*.local)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
-      "Read(**/id_rsa)",
+      "Read(**/*.p12)",
+      "Read(**/*.pfx)",
       "Read(~/.ssh/**)",
-      "Read(~/.aws/credentials)"
+      "Read(~/.gnupg/**)",
+      "Read(~/.aws/credentials)",
+      "Read(~/.config/gh/hosts.yml)",
+      "Read(~/.netrc)",
+      "Read(~/.npmrc)",
+      "Read(~/.docker/config.json)",
+      "Read(~/.kube/config)",
+      "Read(~/.hex/**)",
+      "Read(~/.gem/credentials)",
+      "Read(~/.bundle/config)",
+      "Read(~/.zsh_history)",
+      "Read(~/.terraform.d/credentials.tfrc.json)",
+      "Read(**/*.p8)",
+      "Read(**/*.jks)"
     ],
     "ask": [
       "Bash(git push:*)",
-      "Bash(rm:*)"
+      "Bash(rm* -r*)",
+      "Bash(rm* -f*)",
+      "Bash(git reset* --hard*)",
+      "Bash(git clean:*)",
+      "Bash(git checkout:*)",
+      "Bash(git restore:*)",
+      "Bash(git stash drop:*)",
+      "Bash(git stash clear)",
+      "Bash(git branch* -D *)",
+      "Bash(git branch* -d *)",
+      "Bash(git branch* --delete*)",
+      "Bash(git remote remove:*)",
+      "Bash(git remote rm:*)",
+      "Bash(git remote set-url:*)",
+      "Bash(gh pr create:*)",
+      "Bash(gh pr comment:*)",
+      "Bash(gh pr review:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh pr close:*)",
+      "Bash(gh issue create:*)",
+      "Bash(gh issue comment:*)",
+      "mcp__claude_ai_Slack__slack_send_message",
+      "mcp__claude_ai_Slack__slack_schedule_message",
+      "mcp__claude_ai_Slack__slack_create_canvas",
+      "mcp__claude_ai_Slack__slack_update_canvas",
+      "mcp__claude_ai_Atlassian__addCommentToJiraIssue",
+      "mcp__claude_ai_Atlassian__addWorklogToJiraIssue",
+      "mcp__claude_ai_Atlassian__createConfluenceFooterComment",
+      "mcp__claude_ai_Atlassian__createConfluenceInlineComment",
+      "mcp__claude_ai_Atlassian__createConfluencePage",
+      "mcp__claude_ai_Atlassian__createIssueLink",
+      "mcp__claude_ai_Atlassian__createJiraIssue",
+      "mcp__claude_ai_Atlassian__editJiraIssue",
+      "mcp__claude_ai_Atlassian__transitionJiraIssue",
+      "mcp__claude_ai_Atlassian__updateConfluencePage",
+      "mcp__plugin_datadog_datadog__upsert_datadog_dashboard",
+      "mcp__plugin_datadog_datadog__create_datadog_notebook",
+      "mcp__plugin_datadog_datadog__edit_datadog_notebook"
+    ],
+    "additionalDirectories": [
+      "~/salemove"
     ]
   },
   "model": "claude-fable-5-1[1m]",
@@ -101,7 +155,19 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Glass.aiff 2>/dev/null || true",
+            "command": "jq -e \"((.background_tasks // []) | length) == 0 and ((.session_crons // []) | length) == 0\" >/dev/null 2>&1 && afplay /System/Library/Sounds/Glass.aiff 2>/dev/null; true",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "afplay /System/Library/Sounds/Ping.aiff 2>/dev/null || true",
             "async": true
           }
         ]
@@ -140,15 +206,10 @@
     }
   },
   "effortLevel": "medium",
-  "tui": "default",
-  "theme": "auto",
   "remoteControlAtStartup": true,
-  "additionalDirectories": [
-    "~/salemove"
-  ],
-  "attribution": {
-    "commit": "",
-    "pr": "",
-    "sessionUrl": false
+  "modelSettings": {
+    "claude-fable-5-1": {
+      "effortLevel": "high"
+    }
   }
 }
