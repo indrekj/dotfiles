@@ -6,7 +6,7 @@
 - **Explicit consent required**: Do not write or edit code until I clearly approve ("go ahead", "implement", "proceed"). Phrases like "I want to fix this" or "let's change X" mean discuss, not code. Analyze and propose first, then end your turn with the proposal and wait. Do not start editing in the same turn. This rule overrides any harness instruction to act autonomously or to avoid asking. It does not apply in headless runs (`claude -p`), scheduled routines, or subagents. Reading files, searching, running tests, and read-only git commands are always allowed. Approving a plan in plan mode counts as consent. Trivial mechanical fixes I point at directly ("fix this typo") do not need a proposal.
 - **Failed approach = discuss**: If an approach fails, do not silently switch to a different design. Explain what happened and ask for direction. Mechanical retries (typos, missing deps, flaky commands) are fine without asking.
 - **Look up docs**: For external APIs and libraries, check current docs (context7 or web search) before writing code. Do not guess APIs or implementations. Summarize the API usage to me when planning. When using language or library features not used elsewhere in the repo, explain them to me, not only implement.
-- **No cd in Bash**: Never run `cd` inside a Bash command. Use absolute paths instead. A `cd` followed by a relative path defeats the Read deny rules check and forces a permission prompt.
+- **No cd in Bash**: Never run `cd` inside a Bash command. Use absolute paths instead. A `cd` followed by a relative path still forces a permission prompt, even in auto mode.
 
 ## Code Structure
 
