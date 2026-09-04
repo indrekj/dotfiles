@@ -126,6 +126,8 @@
       "Bash(gh pr close:*)",
       "Bash(gh issue create:*)",
       "Bash(gh issue comment:*)",
+      "Bash(gh api*comments*)",
+      "Bash(gh api*reviews*)",
       "mcp__claude_ai_Slack__slack_send_message",
       "mcp__claude_ai_Slack__slack_schedule_message",
       "mcp__claude_ai_Slack__slack_create_canvas",
