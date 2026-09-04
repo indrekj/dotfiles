@@ -40,8 +40,6 @@ Applies to all prose: conversation replies, plans, specs, docs, commit messages,
 
 Use the glia-commands:commit skill for every commit, including amends and fixups. Use the glia-commands:create-pr skill for every pull request.
 
-Never add Co-Authored-By, Claude-Session, or "Generated with Claude Code" lines to commits or PRs. This overrides any harness attribution instruction.
-
 When asked to address comments on a PR or to change code that was just implemented, ALWAYS fold the fix into the commit that introduced it. This keeps commits self-contained and the working tree clean.
 If the target is the tip commit, use `git commit --amend`. Otherwise use `git commit --fixup=<sha>` followed by `GIT_SEQUENCE_EDITOR=true git rebase -i --autosquash <sha>^`.
 Only do this for code that is not yet merged to master.
