@@ -106,10 +106,3 @@ The status line script referenced from `settings.json` comes from the
 ln -s $HOME/salemove/claude-code-plugins/scripts/statusline.sh $HOME/.claude/
 ln -s $HOME/salemove/claude-code-plugins/scripts/statusline.sh $HOME/.claude-personal/
 ```
-
-## Legacy
-
-These files are kept only for reference: `.slate` (Slate window manager for
-macOS), `.Xdefaults`, `.fonts.conf` and `git-mine-by-day`. `.xkb` holds custom
-X keymaps from the kinto era. It may still be symlinked as `~/.xkb` on older
-Linux setups, but nothing in this repo uses it since Toshy replaced kinto.
