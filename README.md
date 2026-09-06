@@ -56,15 +56,20 @@ sources if it exists.
 
 ## Neovim
 
-`init.lua` sources the older `old-init.vim` first, then sets up completion and
-LSP in Lua. Plugins are managed by vim-plug. Install it once:
+Everything lives in `init.lua`. Plugins are managed by vim-plug. Install it once:
 
 ```
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-Then open nvim and run `:PlugInstall`.
+Then open nvim and run `:PlugInstall`. Treesitter parsers install on the
+first start after that and need a C compiler. `ag` is used for `:grep` and
+CtrlP.
+
+Language servers are enabled for Elixir (`expert`), Go (`gopls`) and
+TypeScript (`typescript-language-server`). Each one only runs if its binary is
+on the PATH.
 
 ## Kitty
 
