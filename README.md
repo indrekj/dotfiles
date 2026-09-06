@@ -64,7 +64,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ```
 
 Then open nvim and run `:PlugInstall`. Treesitter parsers install on the
-first start after that and need a C compiler. `ag` is used for `:grep` and
+first start after that and need a C compiler. `rg` is used for `:grep` and
 CtrlP.
 
 Language servers are enabled for Elixir (`expert`), Go (`gopls`) and

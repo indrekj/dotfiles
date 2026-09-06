@@ -8,7 +8,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-test/vim-test'
 
@@ -48,7 +47,11 @@ o.foldlevelstart = 99
 o.winminheight = 0
 o.winwidth = 100
 o.shortmess = o.shortmess .. 'c'
-o.grepprg = 'ag --vimgrep'
+o.grepprg = 'rg --vimgrep --smart-case'
+o.grepformat = '%f:%l:%c:%m'
+o.undofile = true
+o.ignorecase = true
+o.smartcase = true
 o.statusline = '%-3.3n %f %h%m%r%w%y%=0x%-8B%-14(%l,%c%V%)%<%P'
 
 vim.opt.wildignore:append({
@@ -75,17 +78,14 @@ vim.api.nvim_create_autocmd('FileType', {
   callback = function() vim.bo.textwidth = 78 end,
 })
 
--- Trailing whitespace: highlight it, but not the line being typed on
-vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red', ctermbg = 'red' })
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = function() vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red', ctermbg = 'red' }) end,
-})
-vim.cmd([[match ExtraWhitespace /\s\+$/]])
+-- Trailing whitespace: highlight it, but not the line being typed on.
+-- :match is window-local, so it has to be set again for every new window.
+local function match_trailing_whitespace()
+  vim.cmd([[match ExtraWhitespace /\s\+$/]])
+end
+vim.api.nvim_create_autocmd({ 'BufWinEnter', 'InsertLeave' }, { callback = match_trailing_whitespace })
 vim.api.nvim_create_autocmd('InsertEnter', {
   callback = function() vim.cmd([[match ExtraWhitespace /\s\+\%#\@<!$/]]) end,
-})
-vim.api.nvim_create_autocmd('InsertLeave', {
-  callback = function() vim.cmd([[match ExtraWhitespace /\s\+$/]]) end,
 })
 
 local function strip_trailing_whitespace()
@@ -118,9 +118,10 @@ map('', '<leader>v', ":vnew <C-R>=expand('%:p:h') . '/'<CR><CR>")
 map('', '<leader>y', '"+y')
 map('', '<leader>p', '"+p')
 
--- Move over screen lines, not buffer lines
-map('', 'k', 'gk')
-map('', 'j', 'gj')
+-- Move over screen lines, not buffer lines. Not in operator-pending mode,
+-- so dj and yj stay linewise.
+map({ 'n', 'x' }, 'k', 'gk')
+map({ 'n', 'x' }, 'j', 'gj')
 
 -- Move between windows, also from a terminal
 for _, key in ipairs({ 'h', 'j', 'k', 'l' }) do
@@ -139,7 +140,7 @@ map('n', '<F5>', strip_trailing_whitespace, { silent = true })
 -- CtrlP
 vim.g.ctrlp_map = '<leader>t'
 vim.g.ctrlp_root_markers = { 'start', 'package.json', 'Gemfile' }
-vim.g.ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+vim.g.ctrlp_user_command = 'rg --files %s'
 vim.g.ctrlp_use_caching = 0
 
 -- vim-test: run tests in a :terminal in a new tab
@@ -148,10 +149,15 @@ vim.g['test#neovim#term_position'] = 'tab'
 map('n', '<leader>c', ':TestNearest<CR>', { silent = true })
 map('n', '<leader>C', ':TestSuite<CR>', { silent = true })
 
--- Colors
+-- Colors: overrides go in a ColorScheme autocmd so :colorscheme keeps them
+local function apply_highlight_overrides()
+  vim.api.nvim_set_hl(0, 'Normal', { bg = 'Black', ctermbg = 'Black' })
+  vim.api.nvim_set_hl(0, 'SignColumn', { bg = '#222222' })
+  vim.api.nvim_set_hl(0, 'ExtraWhitespace', { bg = 'red', ctermbg = 'red' })
+end
+vim.api.nvim_create_autocmd('ColorScheme', { callback = apply_highlight_overrides })
 vim.cmd.colorscheme('vividchalk')
-vim.cmd.highlight('Normal guibg=Black ctermbg=Black')
-vim.cmd.highlight('SignColumn guibg=#222222')
+match_trailing_whitespace()
 
 -- Treesitter: nvim-treesitter only installs parsers, Neovim does the highlighting
 require('nvim-treesitter').install({
@@ -242,5 +248,11 @@ vim.diagnostic.config({
   },
 })
 
--- LSP: configs come from nvim-lspconfig
-vim.lsp.enable({ 'expert', 'gopls', 'ts_ls' })
+-- LSP: configs come from nvim-lspconfig. Only enable servers that are
+-- installed, otherwise Neovim logs an error on every matching buffer.
+local servers = { expert = 'expert', gopls = 'gopls', ts_ls = 'typescript-language-server' }
+for server, binary in pairs(servers) do
+  if vim.fn.executable(binary) == 1 then
+    vim.lsp.enable(server)
+  end
+end
