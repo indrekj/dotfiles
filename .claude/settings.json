@@ -157,7 +157,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "jq -e \"((.background_tasks // []) | length) == 0 and ((.session_crons // []) | length) == 0\" >/dev/null 2>&1 && afplay /System/Library/Sounds/Glass.aiff 2>/dev/null; true",
+            "command": "jq -e \"((.background_tasks // []) | length) == 0 and ((.session_crons // []) | length) == 0\" >/dev/null 2>&1 && { afplay /System/Library/Sounds/Glass.aiff || paplay /usr/share/sounds/freedesktop/stereo/dialog-information.oga; } 2>/dev/null; true",
             "async": true
           }
         ]
@@ -169,7 +169,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "afplay /System/Library/Sounds/Ping.aiff 2>/dev/null || true",
+            "command": "{ afplay /System/Library/Sounds/Ping.aiff || paplay /usr/share/sounds/freedesktop/stereo/dialog-information.oga; } 2>/dev/null; true",
             "async": true
           }
         ]
