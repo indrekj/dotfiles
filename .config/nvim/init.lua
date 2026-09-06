@@ -18,7 +18,7 @@ vim.pack.add({
   'https://github.com/tpope/vim-rhubarb',
   'https://github.com/tpope/vim-surround',
   'https://github.com/tpope/vim-rails',
-  'https://github.com/ctrlpvim/ctrlp.vim',
+  'https://github.com/ibhagwan/fzf-lua',
   'https://github.com/vim-test/vim-test',
 
   { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
@@ -113,9 +113,16 @@ map('n', '<C-n>', ':cn<CR>', { silent = true })
 map('n', ';;', ';')
 map('n', '\\', ';')
 
--- Search with ag
-map('n', '<leader>a', ':grep<space>')
-map('n', '<leader>w', ':split<CR>:grep <cword> .<CR>')
+-- Search with fzf-lua. Enter opens one result, or sends a multi-selection to
+-- the quickfix list. Ctrl-q sends every result to the quickfix list.
+local fzf = require('fzf-lua')
+fzf.setup({
+  defaults = { file_icons = false, git_icons = false },
+  keymap = { fzf = { true, ['ctrl-q'] = 'select-all+accept' } },
+})
+map('n', '<leader>t', fzf.files)
+map('n', '<leader>a', fzf.live_grep)
+map('n', '<leader>w', fzf.grep_cword)
 
 -- Edit a file in the directory of the current file
 map('', '<leader>e', ":e <C-R>=expand('%:p:h') . '/'<CR><CR>")
@@ -144,12 +151,6 @@ map('t', '<C-u>', '<C-\\><C-n><C-u>')
 map('t', '<C-d>', '<C-\\><C-n><C-d>')
 
 map('n', '<F5>', strip_trailing_whitespace, { silent = true })
-
--- CtrlP
-vim.g.ctrlp_map = '<leader>t'
-vim.g.ctrlp_root_markers = { 'start', 'package.json', 'Gemfile' }
-vim.g.ctrlp_user_command = 'rg --files %s'
-vim.g.ctrlp_use_caching = 0
 
 -- vim-test: run tests in a :terminal in a new tab
 vim.g['test#strategy'] = 'neovim'

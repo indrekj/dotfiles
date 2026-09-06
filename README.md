@@ -61,8 +61,8 @@ Everything lives in `init.lua`. Plugins are managed by the built-in
 any extra setup. `nvim-pack-lock.json` pins their revisions. Update with
 `:lua vim.pack.update()`, review the diff, then `:write` to accept.
 
-Treesitter parsers install on the first start and need a C compiler. `rg`
-is used for `:grep` and CtrlP.
+Treesitter parsers install on the first start and need a C compiler. Files
+and grep go through fzf-lua, which needs `fzf` and `rg` on the PATH.
 
 Language servers are enabled for Elixir (`expert`), Go (`gopls`) and
 TypeScript (`typescript-language-server`). Each one only runs if its binary is
