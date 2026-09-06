@@ -10,6 +10,9 @@ keymap("User overrides terminals", {
     C("LC-RC-Right"): C("RC-LSuper-Right"),
 
     C("LC-Space"): [bind,C("Alt-Space")],      # keyboard input source switching
+
+    # Let kitty see Cmd+Period (Toshy turns it into Ctrl+C by default)
+    C("RC-Dot"): C("C-Dot"),
 }, when = lambda ctx:
       cnfg.screen_has_focus and
       matchProps(clas=termStr)(ctx)
