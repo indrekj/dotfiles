@@ -1,27 +1,35 @@
 vim.g.mapleader = ';'
 
--- Plugins (vim-plug)
-vim.cmd([[
-call plug#begin('~/.local/share/nvim/plugged')
+-- Plugins (vim.pack, built into Neovim). Update with :lua vim.pack.update()
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-rails'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'vim-test/vim-test'
+-- Parsers are built against the nvim-treesitter revision, so rebuild them
+-- whenever the plugin itself changes. Fresh installs are handled by the
+-- install() call further down.
+vim.api.nvim_create_autocmd('PackChanged', {
+  callback = function(ev)
+    if ev.data.spec.name == 'nvim-treesitter' and ev.data.kind == 'update' then
+      vim.cmd.TSUpdate()
+    end
+  end,
+})
 
-Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main', 'do': ':TSUpdate' }
+vim.pack.add({
+  'https://github.com/tpope/vim-fugitive',
+  'https://github.com/tpope/vim-rhubarb',
+  'https://github.com/tpope/vim-surround',
+  'https://github.com/tpope/vim-rails',
+  'https://github.com/ctrlpvim/ctrlp.vim',
+  'https://github.com/vim-test/vim-test',
 
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter', version = 'main' },
 
-call plug#end()
-]])
+  'https://github.com/neovim/nvim-lspconfig',
+  'https://github.com/hrsh7th/nvim-cmp',
+  'https://github.com/hrsh7th/cmp-nvim-lsp',
+  'https://github.com/hrsh7th/cmp-buffer',
+  'https://github.com/hrsh7th/cmp-path',
+  'https://github.com/hrsh7th/cmp-cmdline',
+})
 
 -- Options
 local o = vim.o

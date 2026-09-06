@@ -56,16 +56,13 @@ sources if it exists.
 
 ## Neovim
 
-Everything lives in `init.lua`. Plugins are managed by vim-plug. Install it once:
+Everything lives in `init.lua`. Plugins are managed by the built-in
+`vim.pack` (Neovim 0.12 or newer), so the first start installs them without
+any extra setup. `nvim-pack-lock.json` pins their revisions. Update with
+`:lua vim.pack.update()`, review the diff, then `:write` to accept.
 
-```
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-Then open nvim and run `:PlugInstall`. Treesitter parsers install on the
-first start after that and need a C compiler. `rg` is used for `:grep` and
-CtrlP.
+Treesitter parsers install on the first start and need a C compiler. `rg`
+is used for `:grep` and CtrlP.
 
 Language servers are enabled for Elixir (`expert`), Go (`gopls`) and
 TypeScript (`typescript-language-server`). Each one only runs if its binary is
