@@ -119,6 +119,14 @@ local fzf = require('fzf-lua')
 fzf.setup({
   defaults = { file_icons = false, git_icons = false },
   keymap = { fzf = { true, ['ctrl-q'] = 'select-all+accept' } },
+  winopts = {
+    on_create = function()
+      -- The global <C-j>/<C-k> terminal mappings move between windows.
+      -- Inside the fzf buffer, hand them back to fzf for list navigation.
+      map('t', '<C-j>', '<Down>', { buffer = true })
+      map('t', '<C-k>', '<Up>', { buffer = true })
+    end,
+  },
 })
 map('n', '<leader>t', fzf.files)
 map('n', '<leader>a', fzf.live_grep)
