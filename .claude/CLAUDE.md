@@ -52,3 +52,10 @@ NEVER run directly in main context:
 - Formatting → quick-agents:quick-format agent
 
 Exception: a single target (one test file, one file to lint or format) can run directly. Reading the real output beats a summarized round trip.
+
+## Subagent Limits
+
+- Run at most 3 subagents at a time. Never fan out one subagent per item (per spec, per file, per module). Batch the items into one or two agents, or do the work in the main context.
+- Before launching more than one subagent, tell me the count and the reason and wait for my OK. Exceptions: the quick-agents (test, lint, format) and a single Explore agent.
+- Search-only agents (Explore, codebase-locator, codebase-pattern-finder) use `model: "haiku"`. Review, planning, and code-writing agents keep the parent model.
+- Do not spawn a subagent for a task that takes one or two tool calls. Do it directly.
