@@ -178,7 +178,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/statusline.sh"
+    "command": "~/dotfiles/.claude/statusline-profile.sh"
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
