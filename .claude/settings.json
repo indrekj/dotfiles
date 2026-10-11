@@ -104,7 +104,6 @@
       "Read(**/*.jks)"
     ],
     "ask": [
-      "Bash(git push:*)",
       "Bash(rm* -r*)",
       "Bash(rm* -f*)",
       "Bash(git reset* --hard*)",
@@ -119,8 +118,6 @@
       "Bash(git remote remove:*)",
       "Bash(git remote rm:*)",
       "Bash(git remote set-url:*)",
-      "Bash(gh pr create:*)",
-      "Bash(gh pr comment:*)",
       "Bash(gh pr review:*)",
       "Bash(gh pr merge:*)",
       "Bash(gh pr close:*)",
