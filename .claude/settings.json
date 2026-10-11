@@ -6,7 +6,6 @@
     "sessionUrl": false
   },
   "permissions": {
-    "defaultMode": "auto",
     "allow": [
       "Bash(git branch:*)",
       "Bash(git diff:*)",
@@ -143,11 +142,12 @@
       "mcp__plugin_datadog_datadog__create_datadog_notebook",
       "mcp__plugin_datadog_datadog__edit_datadog_notebook"
     ],
+    "defaultMode": "auto",
     "additionalDirectories": [
       "~/salemove"
     ]
   },
-  "model": "claude-fable-5-1[1m]",
+  "model": "opus",
   "hooks": {
     "Stop": [
       {
@@ -188,7 +188,12 @@
     "integrations@glia-plugins": true,
     "quick-agents@glia-plugins": true,
     "engineering-knowledge-base@glia-plugins": true,
-    "datadog@glia-plugins": true
+    "datadog@glia-plugins": true,
+    "security-standards@glia-plugins": true,
+    "environment-access@glia-experimental": true,
+    "claude-security@claude-plugins-official": true,
+    "glia-quality-review@glia-plugins": true,
+    "writing-standards@glia-plugins": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -202,13 +207,26 @@
         "source": "github",
         "repo": "salemove/claude-code-plugins"
       }
+    },
+    "glia-experimental": {
+      "source": {
+        "source": "github",
+        "repo": "salemove/claude-code-plugins",
+        "path": "experimental/.claude-plugin/marketplace.json"
+      }
     }
   },
   "effortLevel": "medium",
-  "remoteControlAtStartup": true,
   "modelSettings": {
     "claude-fable-5-1": {
       "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "effortLevel": "high"
     }
-  }
+  },
+  "skipWorkflowUsageWarning": true,
+  "switchModelsOnFlag": true,
+  "remoteControlAtStartup": true,
+  "skipDangerousModePermissionPrompt": true
 }
