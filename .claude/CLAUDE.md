@@ -11,17 +11,19 @@
 
 - **Small, specific modules/classes**: Each module or class should have a single, clear responsibility
 - **Follow the repo's structure**: Match the existing layout and conventions. For new code with no precedent, group by functionality, not by technical layer
-- **Minimize complexity**: Prefer the simple, robust option. Keep implementations minimal. Do not add abstractions, extra entry points, or flexibility unless I ask for them
+- **Minimize complexity**: Prefer the simple, reliable option. Keep implementations minimal. Do not add abstractions, extra entry points, or flexibility unless I ask for them
 
 ## Writing
 
-The voice rules come from the `writing-standards` plugin's session hook. Three rules on top of them:
+The voice rules come from the `writing-standards` plugin's session hook. Subagents do not get the hook text. A subagent invokes `writing-standards:writing-style` before writing prose.
+
+Three more rules apply here:
 
 - No idioms or culture-bound phrases.
 - No cute or unusual word choices. Prefer the plain word: "generate" not "mint", "critical" not "load-bearing".
-- In docs, plans and specs, follow an abstract claim with a concrete example: a real input and its real output. Chat replies stay short and skip this.
+- No nominalizations. Write "decide", not "make a decision".
 
-A commit message, PR description, spec or plan gets its shape from the `writing-standards:writing-deliverables` skill. Read the matching reference before drafting one.
+A commit message, PR description, spec or plan gets its shape from the `writing-standards:writing-deliverables` skill. Read the matching reference before drafting one. `glia-commands:create-pr` wins over it when the two disagree on a PR description.
 
 ## Testing
 
