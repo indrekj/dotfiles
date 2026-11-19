@@ -190,7 +190,6 @@
     "plugin-dev@claude-plugins-official": false,
     "gopls-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": false,
-    "api-v2-spec@glia-plugins": true,
     "deep-research@glia-plugins": false,
     "glia-commands@glia-plugins": true,
     "integrations@glia-plugins": true,
@@ -233,8 +232,8 @@
       "effortLevel": "high"
     }
   },
+  "skipDangerousModePermissionPrompt": true,
   "skipWorkflowUsageWarning": true,
   "switchModelsOnFlag": true,
-  "remoteControlAtStartup": true,
-  "skipDangerousModePermissionPrompt": true
+  "remoteControlAtStartup": true
 }
