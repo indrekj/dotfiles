@@ -1,5 +1,8 @@
 {
   "cleanupPeriodDays": 365,
+  "env": {
+    "DISABLE_TELEMETRY": "1"
+  },
   "attribution": {
     "commit": "",
     "pr": "",
