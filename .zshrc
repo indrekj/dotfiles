@@ -118,6 +118,7 @@ alias find='noglob find'
 alias gp='git push'
 alias gl='git pull'
 alias gf='git fetch'
+alias gco='git checkout'
 
 # fzf
 _fzf_cache=$ZSH_CACHE_DIR/fzf-init.zsh
