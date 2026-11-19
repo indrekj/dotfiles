@@ -213,14 +213,16 @@
       "source": {
         "source": "github",
         "repo": "salemove/claude-code-plugins"
-      }
+      },
+      "autoUpdate": true
     },
     "glia-experimental": {
       "source": {
         "source": "github",
         "repo": "salemove/claude-code-plugins",
         "path": "experimental/.claude-plugin/marketplace.json"
-      }
+      },
+      "autoUpdate": true
     }
   },
   "effortLevel": "medium",
